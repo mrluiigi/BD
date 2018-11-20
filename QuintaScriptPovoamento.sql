@@ -19,10 +19,18 @@ INSERT INTO recurso
         (4, 'Farinha para galinhas', 'Loja do Gusto', 0.30, 700),
         (5, 'Farinha para vacas', 'Utilagro', 0.35, 1820);
 
+INSERT INTO AnimalRecurso
+		(Animal_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
+        VALUES
+        (1, 1, 100, '2018-11-20'),
+        (2, 1, 100, '2018-11-20');
+
+
+
 -- Cuidado, aldrabice 
 SET foreign_key_checks = 0;
-TRUNCATE  TABLE animal;
+TRUNCATE  TABLE AnimalRecurso;
 SET foreign_key_checks = 1;
 
 
-SELECT * FROM recurso;
+SELECT * FROM AnimalRecurso;
