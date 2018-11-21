@@ -128,3 +128,12 @@ READS SQL DATA
 	END %%
 DELIMITER ;
 
+
+-- Soma das vendas num intervalo de tempo 
+delimiter //
+CREATE PROCEDURE valorVendasIntervalo (inicio DATE, fim DATE)
+	BEGIN 
+		SELECT SUM(Valor) FROM Encomenda 
+			WHERE (data BETWEEN inicio  AND fim);
+	END//
+delimiter ;
