@@ -149,3 +149,12 @@ READS SQL DATA
         RETURN total;
 	END%%
 DELIMITER ;
+
+-- produtos do animal x
+
+DELIMITER //
+CREATE PROCEDURE produtosDoAnimal(id int)
+BEGIN
+	select * from produtoanimal where Animal_ID = id;
+END//
+DELIMITER ;
