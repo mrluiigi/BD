@@ -147,7 +147,6 @@ INSERT INTO produtovegetal
 
 -- SELECT * FROM produtovegetal;
 
-
 INSERT INTO encomenda
                 (ID, Valor, Data, Cliente)
         VALUES
@@ -157,5 +156,27 @@ INSERT INTO encomenda
         (4, 250, "2018-4-23", 4),
         (5, 10000, "2018-1-11", 5);
 
+INSERT INTO produtoAnimalEncomenda
+                (ProdutoAnimal_ID, Encomenda_ID, Quantidade)
+        VALUES
+        (1, 3, 50),
+        (2, 4, 100),
+        (3, 2, 10),
+        (4, 1, 5),
+        (5, 5, 20),
+        (2, 5, 10),
+        (1, 4, 24);
+        
+INSERT INTO produtoVegetalEncomenda
+                (ProdutoVegetal_ID, Encomenda_ID, Quantidade)
+        VALUES
+        (1, 2, 20),
+        (2, 3, 55),
+        (3, 3, 25),
+        (8, 1, 10),
+        (4, 4, 15),
+        (6, 5, 5);
+        
+        
 
 -- SELECT * FROM encomenda;
