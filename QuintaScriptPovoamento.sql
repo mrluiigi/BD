@@ -32,7 +32,6 @@ INSERT INTO AnimalRecurso
 -- TRUNCATE  TABLE AnimalRecurso;
 -- SET foreign_key_checks = 1;
 
-
 -- SELECT * FROM AnimalRecurso;
 
 INSERT INTO cliente
@@ -88,6 +87,28 @@ INSERT INTO plantação
 
 -- SELECT * FROM plantação;
 
+INSERT INTO FuncionárioAnimal
+	(Funcionário_Número, Animal_ID)
+    VALUES
+		(1, 1),
+        (10, 2),
+        (7, 3),
+        (5, 4);
+        
+INSERT INTO FuncionárioPlantação
+	(Funcionário_Número, Plantação_ID)
+    VALUES
+		(5, 1),
+        (10, 2),
+        (6, 3),
+        (8, 4),
+        (4, 5),
+        (10 , 6),
+        (3 , 7),
+        (10 , 8),
+        (7 , 9),
+        (1 , 10);
+
 INSERT INTO PlantaçãoRecurso
 		(Plantação_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
         VALUES
@@ -135,5 +156,6 @@ INSERT INTO encomenda
         (3, 750, "2018-11-03", 3),
         (4, 250, "2018-4-23", 4),
         (5, 10000, "2018-1-11", 5);
+
 
 -- SELECT * FROM encomenda;
