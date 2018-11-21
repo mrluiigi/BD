@@ -153,7 +153,7 @@ INSERT INTO encomenda
         (3000, "2018-11-09", 2),
         (750, "2018-11-03", 3),
         (250, "2018-4-23", 4),
-        (5, 10000, "2018-1-11", 5);
+        (10000, "2018-1-11", 5);
 
 INSERT INTO produtoAnimalEncomenda
                 (ProdutoAnimal_ID, Encomenda_ID, Quantidade)
