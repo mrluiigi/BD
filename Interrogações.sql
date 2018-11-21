@@ -111,3 +111,20 @@ DELIMITER ;
 
 -- CALL qualFuncionario(3);
 
+
+
+
+
+
+DELIMITER %%
+
+CREATE FUNCTION existeAnimal(id INT) RETURNS INT
+READS SQL DATA
+	BEGIN 
+    DECLARE existe INT;
+	SELECT COUNT(A.id) INTO existe FROM Animal AS A
+			WHERE A.ID = id;
+	RETURN existe;
+	END %%
+DELIMITER ;
+
