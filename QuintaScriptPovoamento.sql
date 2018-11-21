@@ -2,12 +2,12 @@ USE quinta;
 
 
 INSERT INTO animal
-		(Espécie, Peso, DataNascimento, ValidadeVacina)
+		(Espécie, Peso, DataNascimento, ValidadeVacina, Género)
         VALUES
-        ('Vaca', 1000, '2000/12/03', '2020/08/20'),
-        ('Vaca', 1200, '2004/10/02', '2024/07/22'),
-        ('Galinha', 3, '2013/01/20', '2021/03/13'),
-        ('Cabra', 50, '2010/04/11', '2024/05/23');
+        ('Vaca', 1000, '2000/12/03', '2020/08/20', 'F'),
+        ('Vaca', 1200, '2004/10/02', '2024/07/22', 'M'),
+        ('Galinha', 3, '2013/01/20', '2021/03/13', 'M'),
+        ('Cabra', 50, '2010/04/11', '2024/05/23', 'F');
 
 INSERT INTO recurso
 		(Tipo, Fornecedor, Preco, Stock)
