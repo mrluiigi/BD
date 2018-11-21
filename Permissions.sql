@@ -1,6 +1,6 @@
 CREATE USER 'gestor'@'localhost' IDENTIFIED BY 'aminhapass';
 
-GRANT DELETE, INSERT, SELECT, UPDATE ON * . * TO 'gestor'@'localhost';
+GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.* TO 'gestor'@'localhost';
 
 CREATE USER 'funcionario'@'localhost' IDENTIFIED BY 'aminhapass';
 
