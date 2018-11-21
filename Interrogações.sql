@@ -158,3 +158,59 @@ BEGIN
 	select * from produtoanimal where Animal_ID = id;
 END//
 DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS passouValidadeAnimal;
+DELIMITER //
+CREATE PROCEDURE passouValidadeAnimal(dataA DATE)
+BEGIN
+        SELECT * FROM produtoanimal 
+                WHERE Validade <= dataA;
+END//
+DELIMITER //;
+
+DROP PROCEDURE IF EXISTS produtovegetal;
+DELIMITER //
+CREATE PROCEDURE passouValidadePlanta(dataA DATE)
+BEGIN
+        SELECT * FROM produtovegetal
+                WHERE Validade <= dataA;
+END//
+DELIMITER //;
+
+
+-- Lucro gerado por um animal/plantação (preço dos produtos - custo dos recursos) (num intervalo de tempo?)
+
+-- Custo dos recursos: tabela do animal com o animalrecurso para saber quantidade consumida e depois animalrecurso com recurso para saber o preço
+-- Associar produtoanimal com encomenda para ver o lucro que esse animal gerou
+
+DROP PROCEDURE IF EXISTS recursosConsumidosAnimal;
+
+DELIMITER //
+CREATE PROCEDURE recursosConsumidosAnimal(idAnimal INT)
+BEGIN
+        SELECT A.ID, A.Espécie, R.Tipo, AR.QuantidadeConsumida FROM animal AS A
+                INNER JOIN animalrecurso AS AR ON AR.Animal_ID = A.ID
+        INNER JOIN recurso AS R ON R.ID = AR.Recurso_ID
+                WHERE A.ID = idAnimal;
+END //
+DELIMITER //;
+
+CALL recursosConsumidosAnimal(1);
+
+
+DROP PROCEDURE IF EXISTS calculaCustoConsumidoAnimal;
+
+DELIMITER //
+CREATE PROCEDURE calculaCustoConsumidoAnimal(idAnimal INT)
+BEGIN 
+        SELECT SUM(R.Preco * AR.QuantidadeConsumida) FROM animal AS A
+                INNER JOIN animalrecurso AS AR ON AR.Animal_ID = A.ID
+        INNER JOIN recurso AS R ON R.ID = AR.Recurso_ID
+                WHERE A.ID = idAnimal;
+END //
+DELIMITER //;
+
+CALL calculaCustoConsumidoAnimal(1);
+
