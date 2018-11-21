@@ -28,3 +28,43 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE addProdAnimal(nome varchar(45), preco float, stock int, validade datetime, idAnimal int)
+BEGIN
+	BEGIN
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN 
+			ROLLBACK;
+		END;
+        
+        START TRANSACTION;
+        
+        INSERT INTO produtoanimal  (Designacao, Preco, Stock, Validade, Animal_ID) 
+			VALUE (nome,preco,stock,validade,idAnimal);
+		COMMIT;
+	END;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE addProdVegetal(nome varchar(45), preco float, stock int, validade datetime, idPlantação int)
+BEGIN
+	BEGIN
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN 
+			ROLLBACK;
+		END;
+        
+        START TRANSACTION;
+        
+        INSERT INTO produtovegetal  (Designacao, Preco, Stock, Validade, Plantação_ID) 
+			VALUE (nome,preco,stock,validade,idPlantação);
+		COMMIT;
+	END;
+END //
+
+DELIMITER ;
+
