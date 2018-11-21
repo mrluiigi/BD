@@ -30,7 +30,22 @@ UPDATE recurso
 END//
 DELIMITER ;
 
+-- remove stock do recurso animal e regista que animal consumiu e que quantidade consumiu e a data do ultimo consumo do mesmo animal
+DELIMITER //
+CREATE PROCEDURE removeStockRecursoAnimal(idRecurso INT, quantidade INT, idAnimal INT)
+BEGIN
+		if(quantidadeRecurso(idRecurso) > quantidade) then
+		UPDATE animalrecurso
+				SET QuantidadeConsumida = QuantidadeConsumida + quantidade,
+                DataUltimoConsumo = NOW()
+                WHERE Recurso_ID = idRecurso AND Animal_ID = idAnimal;
+			 UPDATE recurso
+				SET Stock = Stock - quantidade
+				WHERE ID = idRecurso;
+	end if;
+END //
 
+DELIMITER ;
 -- Plantação a colher no mês indicado
 DROP PROCEDURE IF EXISTS colheitaMes;
 DELIMITER //
