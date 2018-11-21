@@ -44,6 +44,21 @@ BEGIN
 				WHERE ID = idRecurso;
 	end if;
 END //
+-- remove stock do recurso plantação e regista que plantação consumiu e que quantidade e a data do ultimo consumo da plantação
+DELIMITER //
+CREATE PROCEDURE removeStockRecursoPlantacao(idRecurso INT, quantidade INT, idPlantacao INT)
+BEGIN
+		if(quantidadeRecurso(idRecurso) > quantidade) then
+		UPDATE plantaçãorecurso
+				SET QuantidadeConsumida = QuantidadeConsumida + quantidade,
+                DataUltimoConsumo = NOW()
+                WHERE Recurso_ID = idRecurso AND Plantação_ID = idPlantacao;
+			 UPDATE recurso
+				SET Stock = Stock - quantidade
+				WHERE ID = idRecurso;
+	end if;
+END //
+DELIMITER ;
 
 DELIMITER ;
 -- Plantação a colher no mês indicado
