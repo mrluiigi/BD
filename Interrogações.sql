@@ -10,3 +10,7 @@ END//
 DELIMITER //;
 
 CALL colheitaMes(6);
+
+
+-- Quantos espécies de animais existem na quinta 
+SELECT COUNT(DISTINCT Espécie) AS TotalEspécies FROM Animal;
