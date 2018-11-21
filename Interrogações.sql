@@ -137,3 +137,15 @@ CREATE PROCEDURE valorVendasIntervalo (inicio DATE, fim DATE)
 			WHERE (data BETWEEN inicio  AND fim);
 	END//
 delimiter ;
+
+-- valor das vendas totais de um cliente
+DELIMITER %%
+CREATE FUNCTION totalVendasCliente(id INT) RETURNS INT
+READS SQL DATA
+	BEGIN
+		DECLARE total INT;
+		SELECT Valor INTO total FROM cliente
+		INNER JOIN encomenda ON encomenda.cliente = cliente.NIF AND cliente.NIF = id;
+        RETURN total;
+	END%%
+DELIMITER ;
