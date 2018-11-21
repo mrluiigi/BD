@@ -28,12 +28,12 @@ INSERT INTO AnimalRecurso
 
 
 -- Cuidado, aldrabice 
-SET foreign_key_checks = 0;
-TRUNCATE  TABLE AnimalRecurso;
-SET foreign_key_checks = 1;
+-- SET foreign_key_checks = 0;
+-- TRUNCATE  TABLE AnimalRecurso;
+-- SET foreign_key_checks = 1;
 
 
-SELECT * FROM AnimalRecurso;
+-- SELECT * FROM AnimalRecurso;
 
 INSERT INTO cliente
                 (NIF, Nome, Tipo, Contacto)
@@ -52,7 +52,7 @@ INSERT INTO cliente
         (12, 'Adubos e Adubos', 'Empresa', '254272138'),
         (13, 'Ração Armindo', 'Empresa', '251298458');
 
-SELECT * FROM cliente;
+-- SELECT * FROM cliente;
 
 
 INSERT INTO funcionário
@@ -69,7 +69,7 @@ INSERT INTO funcionário
         (9, 'Filipa Machado', 'Animais', 950, '921072714', 'D'),
         (10, 'Jéssica Patrícia', 'Plantas', 1000, '960591820', 'D');
 
-SELECT * FROM funcionário;
+-- SELECT * FROM funcionário;
 
 
 INSERT INTO plantação
@@ -86,7 +86,16 @@ INSERT INTO plantação
         (9, 'Ornamentais', 5, 6),
         (10, 'Ornamentais', 5, 6);
 
-SELECT * FROM plantação;
+-- SELECT * FROM plantação;
+
+INSERT INTO PlantaçãoRecurso
+		(Plantação_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
+        VALUES
+        (1, 1, 100, '2018-11-20'),
+        (2, 1, 100, '2018-11-20'),
+        (3, 1, 100, '2018-11-20'),
+        (4, 1, 100, '2018-11-20');
+
 
 
 INSERT INTO produtoanimal
@@ -98,7 +107,7 @@ INSERT INTO produtoanimal
         (4, 'Mel', 14.76, 250, "2020-01-31", 4),
         (5, 'Carne', 17.23, 500, "2018-12-20", 2);
 
-SELECT * FROM produtoanimal;
+-- SELECT * FROM produtoanimal;
 
 
 INSERT INTO produtovegetal
@@ -115,7 +124,7 @@ INSERT INTO produtovegetal
         (9, 'Papoilas', 0.87, 300, "2018-11-30", 9),
         (10, 'Tulipas', 0.56, 275, "2018-11-30", 10);
 
-SELECT * FROM produtovegetal;
+-- SELECT * FROM produtovegetal;
 
 
 INSERT INTO encomenda
@@ -127,4 +136,4 @@ INSERT INTO encomenda
         (4, 250, "2018-4-23", 4),
         (5, 10000, "2018-1-11", 5);
 
-SELECT * FROM encomenda;
+-- SELECT * FROM encomenda;
