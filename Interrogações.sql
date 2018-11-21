@@ -95,3 +95,19 @@ DELIMITER ;
 -- Quantos espécies de animais existem na quinta 
 SELECT COUNT(DISTINCT Espécie) AS TotalEspécies FROM Animal;
 
+
+
+-- Que funcionario cuidou do Animal X
+DROP PROCEDURE IF EXISTS qualFuncionario
+DELIMITER %%
+CREATE PROCEDURE qualFuncionario(idAnimal INT)
+	BEGIN
+		SELECT Funcionário_Número FROM FuncionárioAnimal AS FA
+			WHERE FA.Animal_ID = idAnimal;
+            
+
+	END %%
+DELIMITER ;
+
+-- CALL qualFuncionario(3);
+
