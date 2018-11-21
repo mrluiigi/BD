@@ -12,6 +12,6 @@ GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoVegetal TO 'funcionario'@'
 
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoVegetal TO 'funcionario'@'localhost';
 
--- GRANT ALL PRIVILEGES ON quinta.qualFuncionario TO 'funcionario'@'localhost';
+GRANT EXECUTE ON PROCEDURE quinta.qualFuncionario TO 'funcionario'@'localhost';
 
 SELECT * FROM mysql.user;
