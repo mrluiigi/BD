@@ -21,7 +21,7 @@ USE `quinta` ;
 DROP TABLE IF EXISTS `quinta`.`Funcionário` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`Funcionário` (
-  `Número` INT NOT NULL,
+  `Número` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NOT NULL,
   `Tipo` VARCHAR(45) NOT NULL,
   `Salário` FLOAT NOT NULL,
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`Plantação` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`Plantação` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   `Area` DOUBLE NOT NULL,
   `MesColheita` INT NOT NULL,
@@ -51,11 +51,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`Animal` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`Animal` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Espécie` VARCHAR(45) NOT NULL,
-  `Peso` INT NOT NULL,
+  `Peso` FLOAT NOT NULL,
   `DataNascimento` DATE NOT NULL,
   `ValidadeVacina` DATE NOT NULL,
+  `Género` CHAR(1) NOT NULL,
+  `Vida` CHAR(1) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
@@ -66,7 +68,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`Recurso` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`Recurso` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   `Fornecedor` VARCHAR(45) NOT NULL,
   `Preco` FLOAT NOT NULL,
@@ -81,7 +83,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`ProdutoAnimal` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`ProdutoAnimal` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Designacao` VARCHAR(45) NOT NULL,
   `Preco` FLOAT NOT NULL,
   `Stock` INT NOT NULL,
@@ -117,7 +119,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`Encomenda` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`Encomenda` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Valor` FLOAT NOT NULL,
   `Data` DATE NOT NULL,
   `Cliente` INT NOT NULL,
@@ -237,7 +239,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `quinta`.`ProdutoVegetal` ;
 
 CREATE TABLE IF NOT EXISTS `quinta`.`ProdutoVegetal` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `Designacao` VARCHAR(45) NOT NULL,
   `Preco` FLOAT NOT NULL,
   `Stock` INT NOT NULL,
