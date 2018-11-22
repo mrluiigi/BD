@@ -235,3 +235,12 @@ BEGIN
 END //
 DELIMITER //;
 
+-- Funcionários da Plantação X
+DELIMITER //
+CREATE PROCEDURE funcionariosDaPlantacao(idPlantação INT)
+BEGIN
+	SELECT * FROM funcionário 
+		INNER JOIN funcionárioplantação AS FP ON FP.Funcionário_Número = funcionário.Número
+		WHERE Plantação_ID = idPlantação;
+END //
+DELIMITER ;
