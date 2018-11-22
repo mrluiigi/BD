@@ -200,32 +200,38 @@ DELIMITER //;
 CALL recursosConsumidosAnimal(1);
 
 
-DROP PROCEDURE IF EXISTS calculaCustoConsumidoAnimal;
-
-DELIMITER //
-CREATE PROCEDURE calculaCustoConsumidoAnimal(idAnimal INT)
-BEGIN 
-        SELECT SUM(R.Preco * AR.QuantidadeConsumida) FROM animal AS A
-                INNER JOIN animalrecurso AS AR ON AR.Animal_ID = A.ID
-        INNER JOIN recurso AS R ON R.ID = AR.Recurso_ID
+DELIMITER %%
+CREATE FUNCTION calculaCustoConsumidoAnimal(idAnimal INT) RETURNS int
+READS SQL DATA
+	BEGIN 
+		DECLARE total INT;
+        SELECT SUM(R.Preco * AR.QuantidadeConsumida) INTO total FROM animal AS A
+            INNER JOIN animalrecurso AS AR ON AR.Animal_ID = A.ID
+			INNER JOIN recurso AS R ON R.ID = AR.Recurso_ID
                 WHERE A.ID = idAnimal;
-END //
-DELIMITER //;
+                
+			RETURN total;
+	END %%
+DELIMITER %%;
 
-CALL calculaCustoConsumidoAnimal(1);
-
-
-
-DROP PROCEDURE IF EXISTS calculaVendaProdutosAnimal;
-
-DELIMITER //
-CREATE PROCEDURE calculaVendaProdutosAnimal(idAnimal INT)
-BEGIN 
-        SELECT SUM(PA.Preco * PAE.Quantidade) FROM animal AS A
+DELIMITER %%
+CREATE FUNCTION calculaVendaProdutosAnimal(idAnimal INT) RETURNS INT
+READS SQL DATA
+	BEGIN 
+		DECLARE total INT;
+        SELECT SUM(PA.Preco * PAE.Quantidade) INTO total FROM animal AS A
 			INNER JOIN produtoanimal AS PA ON PA.Animal_ID = A.ID
 			INNER JOIN produtoanimalencomenda AS PAE ON PAE.ProdutoAnimal_ID = PA.ID
 				WHERE A.ID = idAnimal;
+                
+			RETURN total;
+	END %%
+DELIMITER %%;
+
+DELIMITER //
+CREATE PROCEDURE calculaLucro(idAnimal INT)
+BEGIN
+    SELECT (calculaVendaProdutosAnimal(idAnimal) - calculaCustoConsumidoAnimal(idAnimal));
 END //
 DELIMITER //;
 
-CALL calculaVendaProdutosAnimal(2);
