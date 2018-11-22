@@ -49,12 +49,12 @@ INSERT INTO animal
 INSERT INTO recurso
 		(Tipo, Fornecedor, Preco, Stock)
         VALUES
-        ('Água', 'Câmara Municipal', 0.01, 100000),
+        ('Água', 'Câmara Municipal', 0.005, 100000),
         ('Adubo', 'ADP Fertilizantes', 0.50, 1000),
         ('Herbicida', 'Bayer', 20, 124),
-        ('Farinha para galinhas', 'Loja do Gusto', 0.30, 700),
-        ('Farinha para vacas', 'Utilagro', 0.35, 1820),
-        ('Farinha para coelhos', 'Utilagro', 0.27, 1300);
+        ('Farinha para galinhas', 'Loja do Gusto', 0.12, 700),
+        ('Farinha para vacas', 'Utilagro', 0.25, 1820),
+        ('Farinha para coelhos', 'Utilagro', 0.17, 1300);
 
 INSERT INTO AnimalRecurso
 		(Animal_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
@@ -225,10 +225,23 @@ INSERT INTO PlantaçãoRecurso
 INSERT INTO produtoanimal
                 (Designacao, Preco, Stock, Validade, Animal_ID)
         VALUES
-        ('Ovos', 0.89, 750, "2019-03-11", 1),
+        ('Ovos', 0.89, 3, "2017-04-23", 8),
+        ('Ovos', 0.89, 2, "2017-03-14", 9),
+        ('Ovos', 0.89, 5, "2017-03-21", 10),
+        ('Ovos', 0.89, 4, "2017-04-01", 11),
+        ('Ovos', 0.89, 4, "2017-03-19", 12),
+        ('Ovos', 0.89, 3, "2017-05-23", 8),
+        ('Ovos', 0.89, 2, "2017-04-14", 9),
+        ('Ovos', 0.89, 5, "2017-04-21", 10),
+        ('Ovos', 0.89, 4, "2017-05-01", 11),
+        ('Ovos', 0.89, 4, "2017-04-19", 12),
+		('Ovos', 0.89, 4, "2018-04-09", 13),
+		('Ovos', 0.89, 4, "2018-04-14", 14),
+		('Ovos', 0.89, 4, "2018-04-06", 16),
+        ('Ovos', 0.89, 4, "2018-03-23", 13),
+		('Ovos', 0.89, 4, "2018-04-01", 14),
+		('Ovos', 0.89, 4, "2018-03-21", 16),
         ('Leite', 1.19, 1500, "2019-05-23", 2),
-        ('Lã', 50, 200, "9999-01-01", 3),
-        ('Mel', 14.76, 250, "2020-01-31", 4),
         ('Carne', 17.23, 500, "2018-12-20", 2);
 
 -- SELECT * FROM produtoanimal;
