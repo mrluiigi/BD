@@ -142,16 +142,16 @@ INSERT INTO funcionário
 INSERT INTO plantação
                 (Tipo, Area, MesColheita)
         VALUES
-        ('Terrestres', 10, 4),
-        ('Terrestres', 10, 5),
-        ('Terrestres', 10, 6),
-        ('Terrestres', 10, 10),
-        ('Medicinais', 2, 11),
-        ('Medicinais', 2, 12),
-        ('Medicinais', 3, 7),
-        ('Ornamentais', 5, 5),
-        ('Ornamentais', 5, 6),
-        ('Ornamentais', 5, 6);
+        ('Estufa', 10, 4),
+        ('Exterior', 10, 5),
+        ('Exterior', 10, 6),
+        ('Estufa', 10, 10),
+        ('Exterior', 2, 11),
+        ('Estufa', 2, 12),
+        ('Exterior', 3, 7),
+        ('Estufa', 5, 5),
+        ('Estufa', 5, 6),
+        ('Exterior', 5, 6);
 
 -- SELECT * FROM plantação;
 
