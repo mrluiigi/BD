@@ -214,3 +214,18 @@ DELIMITER //;
 
 CALL calculaCustoConsumidoAnimal(1);
 
+
+
+DROP PROCEDURE IF EXISTS calculaVendaProdutosAnimal;
+
+DELIMITER //
+CREATE PROCEDURE calculaVendaProdutosAnimal(idAnimal INT)
+BEGIN 
+        SELECT SUM(PA.Preco * PAE.Quantidade) FROM animal AS A
+			INNER JOIN produtoanimal AS PA ON PA.Animal_ID = A.ID
+			INNER JOIN produtoanimalencomenda AS PAE ON PAE.ProdutoAnimal_ID = PA.ID
+				WHERE A.ID = idAnimal;
+END //
+DELIMITER //;
+
+CALL calculaVendaProdutosAnimal(2);
