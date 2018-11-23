@@ -152,7 +152,17 @@ INSERT INTO cliente
         (10, 'Margarida Maia', 'Individual', '964324187'),
         (11, 'Frutas, Lda', 'Empresa', '252900345'),
         (12, 'Adubos e Adubos', 'Empresa', '254272138'),
-        (13, 'Ração Armindo', 'Empresa', '251298458');
+        (13, 'Ração Armindo', 'Empresa', '251298458'),
+        (14, 'Macedos e Companhia, Lda', 'Empresa', '251977660'),
+        (15, 'Gym N.png', 'Empresa', '253696956'),
+        (16, 'César Augusto', 'Individual', '965005179'),
+        (17, 'Jonh Luís', 'Individual', '969696969'),
+        (18, 'Guilherme Viveiros', 'Individual', '926790525'),
+        (19, 'Marco Dantas', 'Individual', '921236549'),
+        (20, 'Daniel Costa', 'Individual', '987456321'),
+        (21, 'Carlos Castro', 'Individual', '967834512');
+        
+        
 
 -- SELECT * FROM cliente;
 
