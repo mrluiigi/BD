@@ -290,8 +290,9 @@ CALL quantasEncomendas();
 DELIMITER //
 CREATE PROCEDURE especiesConsomem(recurso INT)
 BEGIN
-    SELECT * FROM animal
-		INNER JOIN animalrecurso AS AR ON AR.Recurso_ID = recurso;
+    SELECT DISTINCT(Espécie) FROM animal
+		INNER JOIN animalrecurso AS AR ON AR.Animal_ID = animal.ID
+        WHERE AR.Recurso_ID = recurso;
 END //
 DELIMITER //;
 
