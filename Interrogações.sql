@@ -244,3 +244,55 @@ BEGIN
 		WHERE Plantação_ID = idPlantação;
 END //
 DELIMITER ;
+
+
+-- Número de animais da espécie X
+
+DELIMITER //
+CREATE PROCEDURE animalEspecie(especie varchar(45))
+BEGIN
+    SELECT COUNT(*) FROM animal
+		WHERE animal.Espécie = especie AND animal.Vida = 'V';
+END //
+DELIMITER //;
+
+CALL animalEspecie('Vaca minhota');
+
+
+
+-- Área total das plantações (é preciso atributo para saber se foi colhida)
+
+DELIMITER //
+CREATE PROCEDURE areaPlantacoes()
+BEGIN
+    SELECT SUM(Area) FROM plantação;
+END //
+DELIMITER //;
+
+CALL areaPlantacoes();
+
+
+-- Numero de encomendas feitas
+
+DELIMITER //
+CREATE PROCEDURE quantasEncomendas()
+BEGIN
+    SELECT COUNT(*) FROM encomenda;
+END //
+DELIMITER //;
+
+CALL quantasEncomendas();
+
+
+
+-- Que espécies consomem o recurso X
+
+DELIMITER //
+CREATE PROCEDURE especiesConsomem(recurso INT)
+BEGIN
+    SELECT * FROM animal
+		INNER JOIN animalrecurso AS AR ON AR.Recurso_ID = recurso;
+END //
+DELIMITER //;
+
+CALL especiesConsomem(1);
