@@ -244,24 +244,3 @@ BEGIN
 		WHERE Plantação_ID = idPlantação;
 END //
 DELIMITER ;
-
--- Altera a data da última vez que os animais foram alimentados para a hora atual
-DELIMITER //
-CREATE PROCEDURE atualizaDataConsumo()
-BEGIN
-	BEGIN
-        DECLARE EXIT HANDLER FOR SQLEXCEPTION
-        BEGIN 
-			ROLLBACK;
-		END;
-        
-        START TRANSACTION;
-        
-		UPDATE AnimalRecurso
-				INNER JOIN animal ON animal.ID = animalrecurso.Animal_ID
-				SET DataUltimoConsumo = NOW()
-					WHERE animal.Vida = 'V';
-		COMMIT;
-	END;
-END //
-DELIMITER //
