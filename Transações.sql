@@ -139,3 +139,38 @@ BEGIN
 	END;
 END %%
 DELIMITER ;
+
+
+-- Altera informação de cliente
+DELIMITER %%
+CREATE PROCEDURE alteraCliente(nifC INT, novoNome VARCHAR(45), novoTipo VARCHAR(45), novoContacto CHAR(9))
+BEGIN
+	BEGIN
+        START TRANSACTION;
+        
+		UPDATE Cliente
+			SET Nome = novoNome,
+				Tipo = novoTipo,
+                Contacto = novoContacto
+					WHERE NIF = nifC;
+		COMMIT;
+	END;
+END %%
+DELIMITER ;
+
+-- Adiciona Cliente
+DELIMITER %%
+CREATE PROCEDURE addCliente(nifC INT, novoNome VARCHAR(45), novoTipo VARCHAR(45), novoContacto CHAR(9))
+BEGIN
+	BEGIN
+        START TRANSACTION;
+        
+		INSERT INTO Cliente
+			(NIF, Nome, Tipo, Contacto)
+			VALUES
+            (nifC, novoNome, novoTipo, novoContacto);
+            
+		COMMIT;
+	END;
+END %%
+DELIMITER ;
