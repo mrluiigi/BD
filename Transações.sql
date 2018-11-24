@@ -1,9 +1,9 @@
--- remove stock do recurso animal e regista que animal consumiu e que quantidade consumiu e a data do ultimo consumo do mesmo animal
+-- Remove stock do recurso animal e regista que animal consumiu e que quantidade consumiu e a data do ultimo consumo do mesmo animal
 DROP PROCEDURE IF EXISTS removeStockRecursoAnimal;
 DELIMITER //
 CREATE PROCEDURE removeStockRecursoAnimal(idRecurso INT, quantidade INT, idAnimal INT)
 BEGIN
-		if(quantidadeRecurso(idRecurso) > quantidade and existeAnimal(idAnimal)) then
+	IF(quantidadeRecurso(idRecurso) > quantidade AND existeAnimal(idAnimal)) THEN
         BEGIN
         DECLARE EXIT HANDLER FOR SQLEXCEPTION
         BEGIN 
@@ -13,24 +13,25 @@ BEGIN
         START TRANSACTION;
             
         UPDATE recurso
-				SET Stock = Stock - quantidade
-				WHERE ID = idRecurso;
+			SET Stock = Stock - quantidade
+			WHERE ID = idRecurso;
                 
 		UPDATE animalrecurso
-				SET QuantidadeConsumida = QuantidadeConsumida + quantidade,
+			SET QuantidadeConsumida = QuantidadeConsumida + quantidade,
                 DataUltimoConsumo = NOW()
-                WHERE Recurso_ID = idRecurso AND Animal_ID = idAnimal;
+			WHERE Recurso_ID = idRecurso AND Animal_ID = idAnimal;
 	   
-                
+
 		COMMIT;
         END;
-	end if;
+	END IF;
 END //
-
 DELIMITER ;
 
+
+-- Adiciona produto animal
 DELIMITER //
-CREATE PROCEDURE addProdAnimal(nome varchar(45), preco float, stock int, validade datetime, idAnimal int)
+CREATE PROCEDURE addProdAnimal(nome VARCHAR(45), preco FLOAT, stock INT, validade DATETIME, idAnimal INT)
 BEGIN
 	BEGIN
         DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -45,12 +46,11 @@ BEGIN
 		COMMIT;
 	END;
 END //
-
 DELIMITER ;
 
-
+-- Adiciona produto vegetal
 DELIMITER //
-CREATE PROCEDURE addProdVegetal(nome varchar(45), preco float, stock int, validade datetime, idPlantação int)
+CREATE PROCEDURE addProdVegetal(nome VARCHAR(45), preco FLOAT, stock INT, validade DATETIME, idPlantação INT)
 BEGIN
 	BEGIN
         DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -82,11 +82,11 @@ BEGIN
         START TRANSACTION;
         
 		UPDATE AnimalRecurso
-				INNER JOIN animal ON animal.ID = animalrecurso.Animal_ID
-				SET DataUltimoConsumo = NOW()
-					WHERE animal.Vida = 'V';
+			INNER JOIN animal ON animal.ID = animalrecurso.Animal_ID
+			SET DataUltimoConsumo = NOW()
+				WHERE animal.Vida = 'V';
 		COMMIT;
 	END;
 END //
-DELIMITER //
+DELIMITER ;
 

@@ -74,7 +74,7 @@ END //
 DELIMITER ;
 
 
--- Plantação a colher no mês indicado
+-- Plantações a colher no mês indicado
 DROP PROCEDURE IF EXISTS colheitaMes;
 
 DELIMITER //
@@ -330,8 +330,3 @@ DELIMITER ;
 
 CALL especiesConsomem(1);
 
-
--- Lucro gerado por um animal/plantação (preço dos produtos - custo dos recursos) (num intervalo de tempo?)
-
--- Custo dos recursos: tabela do animal com o animalrecurso para saber quantidade consumida e depois animalrecurso com recurso para saber o preço
--- Associar produtoanimal com encomenda para ver o lucro que esse animal gerou
