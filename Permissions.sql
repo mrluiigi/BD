@@ -1,9 +1,13 @@
--- Gestor
+-- Permissões
+
+-- -------------------GESTOR--------------------------
 CREATE USER 'gestor'@'localhost' IDENTIFIED BY 'manel42';
 -- DROP USER 'gestor'@'localhost';
 
 -- Permissões do gestor
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.* TO 'gestor'@'localhost';
+
+GRANT EXECUTE ON quinta.* TO 'gestor'@'localhost';
 
 
 
@@ -44,6 +48,6 @@ GRANT EXECUTE ON FUNCTION quinta.quantidadeRecurso TO 'funcionario'@'localhost';
 GRANT SELECT ON quinta.horarios TO 'funcionario'@'localhost';
 
 
-
+-- SHOW GRANTS FOR 'funcionario'@'localhost';
 
 -- SELECT * FROM mysql.user;
