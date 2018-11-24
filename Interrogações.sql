@@ -8,6 +8,16 @@ SELECT * FROM animal WHERE ValidadeVacina <= (DATE(NOW()) + INTERVAL 1 MONTH);
 SELECT COUNT(DISTINCT Espécie) AS TotalEspécies FROM Animal;
 
 
+-- Área total das plantações (é preciso atributo para saber se foi colhida)
+SELECT SUM(Area) FROM plantação;
+select * from plantação;
+
+
+-- Número de encomendas feitas
+SELECT COUNT(*) FROM encomenda;
+
+
+
 -- Altera validade da vacina +2 anos
 DROP PROCEDURE IF EXISTS alteraValidadeVacina;
 
@@ -292,29 +302,6 @@ CREATE PROCEDURE animalEspecie(especie varchar(45))
 DELIMITER ;
 
 CALL animalEspecie('Vaca minhota');
-
-
-
--- Área total das plantações (é preciso atributo para saber se foi colhida)
-DELIMITER //
-CREATE PROCEDURE areaPlantacoes()
-BEGIN
-    SELECT SUM(Area) FROM plantação;
-END //
-DELIMITER ;
-
-CALL areaPlantacoes();
-
-
--- Número de encomendas feitas
-DELIMITER //
-CREATE PROCEDURE quantasEncomendas()
-BEGIN
-    SELECT COUNT(*) FROM encomenda;
-END //
-DELIMITER ;
-
-CALL quantasEncomendas();
 
 
 
