@@ -170,16 +170,16 @@ INSERT INTO cliente
 INSERT INTO funcionário
                 (Nome, Tipo, Salário, Contacto, Horário)
         VALUES
-        ('Gabriel Trovão', 'Animais', 750, '955521239', 'S'),
+        ('Gabriel Trovão', 'Animais e Plantas', 750, '955521239', 'S'),
         ('Nuno Carvalho', 'Animais', 800, '940808728', 'S'),
         ('Simão Pereira', 'Plantas', 650, '969054305', 'S'),
         ('João Machado', 'Plantas', 675,  '919954869', 'S'),
-        ('Beatriz Abreu', 'Animais', 725, '938003443', 'S'),
+        ('Beatriz Abreu', 'Animais e Plantas', 725, '938003443', 'S'),
         ('Maria Silva', 'Animais', 825, '931116199', 'D'),
-        ('Paulo Carvalho', 'Plantas', 925, '927680363', 'D'),
+        ('Paulo Carvalho', 'Animais e Plantas', 925, '927680363', 'D'),
         ('Fábio Cunha', 'Plantas', 875, '961458206', 'D'),
         ('Filipa Machado', 'Animais', 950, '921072714', 'D'),
-        ('Jéssica Patrícia', 'Plantas', 1000, '960591820', 'D');
+        ('Jéssica Patrícia', 'Animais e Plantas', 1000, '960591820', 'D');
 
 -- SELECT * FROM funcionário;
 
