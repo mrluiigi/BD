@@ -90,3 +90,19 @@ BEGIN
 END //
 DELIMITER ;
 
+-- Altera tipo e mês de plantação;
+
+DELIMITER %%
+CREATE PROCEDURE alteraPlantacao(novoTipo VARCHAR(45), novoMes INT)
+BEGIN
+	BEGIN
+        START TRANSACTION;
+        
+		UPDATE Plantação
+			SET Tipo = novoTipo,
+				MesColheita = novoMes;
+				
+		COMMIT;
+	END;
+END %%
+DELIMITER ;
