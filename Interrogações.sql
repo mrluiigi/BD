@@ -212,6 +212,20 @@ CREATE PROCEDURE passouValidadePlanta(dataA DATE)
 	END//
 DELIMITER ;
 
+-- Recursos consumidos pela Plantação dada
+DROP PROCEDURE IF EXISTS recursosConsumidosPlantacao;
+
+DELIMITER //
+CREATE PROCEDURE recursosConsumidosPlantacao(idPlantacao INT)
+BEGIN
+        SELECT P.ID, P.Tipo, R.Tipo, PR.QuantidadeConsumida FROM Plantação AS P
+			INNER JOIN PlantaçãoRecurso AS PR ON PR.Plantação_ID = P.ID
+			INNER JOIN recurso AS R ON R.ID = PR.Recurso_ID
+                WHERE P.ID = idPlantacao;
+END //
+DELIMITER ;
+
+CALL recursosConsumidosPlantacao(2);
 
 -- Recursos consumidos pelo animal dado
 DROP PROCEDURE IF EXISTS recursosConsumidosAnimal;
