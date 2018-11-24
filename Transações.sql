@@ -109,31 +109,32 @@ DELIMITER ;
 
 
 -- Altera salario de funcionário
+Drop procedure alteraSalario
 DELIMITER %%
-CREATE PROCEDURE alteraSalario(novoSalario FLOAT)
+CREATE PROCEDURE alteraSalario(nr INT, novoSalario FLOAT)
 BEGIN
 	BEGIN
         START TRANSACTION;
         
 		UPDATE Funcionário
-			SET Salario = novoSalario;
+			SET Salário = novoSalario
+            WHERE nr = Número;
 				
 		COMMIT;
 	END;
 END %%
 DELIMITER ;
 
-
 -- Altera Horário de funcionário
 DELIMITER %%
-CREATE PROCEDURE alteraHorario(novoHorario CHAR(1))
+CREATE PROCEDURE alteraHorario(nr INT,novoHorario CHAR(1))
 BEGIN
 	BEGIN
         START TRANSACTION;
         
 		UPDATE Funcionário
-			SET Horário = novoHorario;
-				
+			SET Horário = novoHorario
+			WHERE nr = Número;
 		COMMIT;
 	END;
 END %%

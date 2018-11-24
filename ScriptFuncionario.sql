@@ -70,3 +70,7 @@ CALL recursosConsumidosAnimal(1);
 
 -- Recursos consumidos pela Plantação dada
 CALL recursosConsumidosPlantacao(2);
+
+
+-- Altera a data da última vez que os animais foram alimentados para a hora atual
+CALL atualizaDataConsumo();
