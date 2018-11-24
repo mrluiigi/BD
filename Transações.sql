@@ -106,3 +106,35 @@ BEGIN
 	END;
 END %%
 DELIMITER ;
+
+
+-- Altera salario de funcionário
+DELIMITER %%
+CREATE PROCEDURE alteraSalario(novoSalario FLOAT)
+BEGIN
+	BEGIN
+        START TRANSACTION;
+        
+		UPDATE Funcionário
+			SET Salario = novoSalario;
+				
+		COMMIT;
+	END;
+END %%
+DELIMITER ;
+
+
+-- Altera Horário de funcionário
+DELIMITER %%
+CREATE PROCEDURE alteraHorario(novoHorario CHAR(1))
+BEGIN
+	BEGIN
+        START TRANSACTION;
+        
+		UPDATE Funcionário
+			SET Horário = novoHorario;
+				
+		COMMIT;
+	END;
+END %%
+DELIMITER ;
