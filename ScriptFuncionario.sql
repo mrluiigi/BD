@@ -74,3 +74,6 @@ CALL recursosConsumidosPlantacao(2);
 
 -- Altera a data da última vez que os animais foram alimentados para a hora atual
 CALL atualizaDataConsumo();
+
+-- Adiciona encomenda de um cliente. (valor, data, nifcliente, idPA, qtdA, idPV, qtdV)
+CALL addEncomenda(22, '2018-11-25', 1, 3, 10, 1, 3);

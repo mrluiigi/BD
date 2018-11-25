@@ -45,6 +45,7 @@ GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoAnimal TO 'funcionario'@'loc
 GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoPlantacao TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON PROCEDURE quinta.addEncomenda TO 'funcionario'@'localhost'; 
 
+
 -- Premissoes para funções
 GRANT EXECUTE ON FUNCTION quinta.existeAnimal TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON FUNCTION quinta.quantidadeRecurso TO 'funcionario'@'localhost'; 

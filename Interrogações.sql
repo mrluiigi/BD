@@ -97,6 +97,33 @@ DELIMITER ;
 
 -- CALL colheitaMes(6);
 
+-- Quantidade em stock do produtoanimal X
+DELIMITER %%
+CREATE FUNCTION quantidadePA(id INT) RETURNS INT
+READS SQL DATA
+	BEGIN 
+		DECLARE quantidade INT;
+        
+        SELECT PA.Stock INTO quantidade FROM ProdutoAnimal AS PA
+			WHERE PA.ID = id;
+		RETURN quantidade;
+        
+	END %%
+DELIMITER ;
+
+-- Quantidade em stock do produtovegetal X
+DELIMITER %%
+CREATE FUNCTION quantidadePV(id INT) RETURNS INT
+READS SQL DATA
+	BEGIN 
+		DECLARE quantidade INT;
+        
+        SELECT PV.Stock INTO quantidade FROM ProdutoVegetal AS PV
+			WHERE PV.ID = id;
+		RETURN quantidade;
+        
+	END %%
+DELIMITER ;
 
 -- Quantidade em Stock do recurso X
 DROP FUNCTION IF EXISTS quantidadeRecurso;

@@ -95,15 +95,13 @@ DELIMITER ;
 DELIMITER %%
 CREATE PROCEDURE alteraPlantacao(novoTipo VARCHAR(45), novoMes INT)
 BEGIN
-	BEGIN
-        START TRANSACTION;
+	START TRANSACTION;
         
-		UPDATE Plantação
-			SET Tipo = novoTipo,
-				MesColheita = novoMes;
+	UPDATE Plantação
+		SET Tipo = novoTipo,
+			MesColheita = novoMes;
 				
-		COMMIT;
-	END;
+	COMMIT;
 END %%
 DELIMITER ;
 
@@ -113,15 +111,13 @@ Drop procedure alteraSalario
 DELIMITER %%
 CREATE PROCEDURE alteraSalario(nr INT, novoSalario FLOAT)
 BEGIN
-	BEGIN
-        START TRANSACTION;
-        
-		UPDATE Funcionário
-			SET Salário = novoSalario
-            WHERE nr = Número;
+	START TRANSACTION;
+	
+	UPDATE Funcionário
+		SET Salário = novoSalario
+		WHERE nr = Número;
 				
-		COMMIT;
-	END;
+	COMMIT;
 END %%
 DELIMITER ;
 
@@ -129,14 +125,12 @@ DELIMITER ;
 DELIMITER %%
 CREATE PROCEDURE alteraHorario(nr INT,novoHorario CHAR(1))
 BEGIN
-	BEGIN
-        START TRANSACTION;
+	START TRANSACTION;
         
-		UPDATE Funcionário
-			SET Horário = novoHorario
-			WHERE nr = Número;
-		COMMIT;
-	END;
+	UPDATE Funcionário
+		SET Horário = novoHorario
+		WHERE nr = Número;
+	COMMIT;
 END %%
 DELIMITER ;
 
@@ -145,15 +139,81 @@ DELIMITER ;
 DELIMITER %%
 CREATE PROCEDURE alteraCliente(nifC INT, novoNome VARCHAR(45), novoTipo VARCHAR(45), novoContacto CHAR(9))
 BEGIN
-	BEGIN
-        START TRANSACTION;
+	START TRANSACTION;
         
-		UPDATE Cliente
-			SET Nome = novoNome,
-				Tipo = novoTipo,
-                Contacto = novoContacto
-					WHERE NIF = nifC;
-		COMMIT;
-	END;
+	UPDATE Cliente
+		SET Nome = novoNome,
+			Tipo = novoTipo,
+			Contacto = novoContacto
+				WHERE NIF = nifC;
+	COMMIT;
 END %%
 DELIMITER ;
+
+
+-- Adiciona Cliente
+DELIMITER %%
+CREATE PROCEDURE addCliente(nifC INT, novoNome VARCHAR(45), novoTipo VARCHAR(45), novoContacto CHAR(9))
+BEGIN
+	START TRANSACTION;
+        
+	INSERT INTO Cliente
+		(NIF, Nome, Tipo, Contacto)
+		VALUES
+		(nifC, novoNome, novoTipo, novoContacto);
+            
+	COMMIT;
+
+END %%
+DELIMITER ;
+
+-- Adiciona encomenda
+DROP Procedure addEncomenda;
+DELIMITER %%
+CREATE PROCEDURE addEncomenda(val FLOAT, dataE DATE, nifCliente INT, idPA INT, qtdA INT, idPV INT, qtdV INT)
+	BEGIN
+		DECLARE idEnc INT;
+        
+        START TRANSACTION;
+        
+        IF((qtdA > quantidadePA(idPA) OR qtdA = 0) AND (qtdV = 0 OR qtdV > quantidadePV(idPV)))
+        THEN 
+			ROLLBACK;
+        END IF;
+        
+        
+        INSERT INTO Encomenda
+			(Valor, Data, Cliente)
+			VALUES
+			(val, dataE, nifCliente);
+            
+		SELECT LAST_INSERT_ID() INTO idEnc;
+        
+        IF(qtdA <= quantidadePA(idPA)) 
+		THEN 
+			UPDATE ProdutoAnimal 
+				SET Stock = Stock - qtdA 
+					WHERE ProdutoAnimal.ID = idPA;
+            INSERT INTO ProdutoAnimalEncomenda
+				(ProdutoAnimal_ID, Encomenda_ID, Quantidade)
+                VALUES
+                (idPA, idEnc, qtdA);
+		END IF;
+        
+        IF(qtdV <= quantidadePV(idPV))
+        THEN
+			UPDATE ProdutoVegetal 
+				SET Stock = Stock - qtdV 
+					WHERE ProdutoVegetal.ID = idPV;
+            INSERT INTO ProdutoVegetalEncomenda
+				(ProdutoVegetal_ID, Encomenda_ID, Quantidade)
+                VALUES
+                (idPV, idEnc, qtdV);
+		END IF;
+        
+		COMMIT;
+
+	END %%
+DELIMITER ;
+
+
