@@ -1,3 +1,4 @@
+USE quinta;
 -- Permissões
 
 -- -------------------GESTOR--------------------------
@@ -20,6 +21,8 @@ GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.Animal TO 'funcionario'@'localhos
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoAnimal TO 'funcionario'@'localhost';
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoVegetal TO 'funcionario'@'localhost';
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.Recurso TO 'funcionario'@'localhost';
+GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.Plantação TO 'funcionario'@'localhost';
+
 
 -- Permissoes para os procedures
 GRANT EXECUTE ON PROCEDURE quinta.addProdAnimal TO 'funcionario'@'localhost'; 
