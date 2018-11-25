@@ -185,18 +185,18 @@ INSERT INTO cliente
 INSERT INTO funcionário
                 (Nome, Tipo, Salário, Contacto, Horário)
         VALUES
-        ('Gabriel Trovão', 'Animais e Plantas', 750, '955521239', 'S'),
-        ('Nuno Carvalho', 'Animais', 800, '940808728', 'S'),
-        ('Simão Pereira', 'Plantas', 650, '969054305', 'S'),
-        ('João Machado', 'Plantas', 675,  '919954869', 'S'),
-        ('Beatriz Abreu', 'Animais e Plantas', 725, '938003443', 'S'),
-        ('Maria Silva', 'Animais', 825, '931116199', 'D'),
-        ('Paulo Carvalho', 'Animais e Plantas', 925, '927680363', 'D'),
-        ('Fábio Cunha', 'Plantas', 875, '961458206', 'D'),
-        ('Filipa Machado', 'Animais', 950, '921072714', 'D'),
-        ('Jéssica Patrícia', 'Animais e Plantas', 1000, '960591820', 'D'),
-        ('João Matos', 'Animaais' , 890, '917694787', 'D'),
-        ('Andreia Rodrigues', 'Animais', 900, '936726675', 'S');
+        ('Gabriel Trovão', 'T', 750, '955521239', 'S'),
+        ('Nuno Carvalho', 'A', 800, '940808728', 'S'),
+        ('Simão Pereira', 'P', 650, '969054305', 'S'),
+        ('João Machado', 'P', 675,  '919954869', 'S'),
+        ('Beatriz Abreu', 'T', 725, '938003443', 'S'),
+        ('Maria Silva', 'A', 825, '931116199', 'D'),
+        ('Paulo Carvalho', 'T', 925, '927680363', 'D'),
+        ('Fábio Cunha', 'P', 875, '961458206', 'D'),
+        ('Filipa Machado', 'A', 950, '921072714', 'D'),
+        ('Jéssica Patrícia', 'T', 1000, '960591820', 'D'),
+        ('João Matos', 'A' , 890, '917694787', 'D'),
+        ('Andreia Rodrigues', 'A', 900, '936726675', 'S');
 
 		-- SELECT * FROM funcionário;
 
