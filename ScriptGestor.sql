@@ -47,7 +47,7 @@ SELECT totalVendasCliente(2);
 -- Calcula o valor de todas as vendas dos produtos provindos de certo animal
 SELECT calculaVendaProdutosAnimal(8);
  
--- Altera informação de cliente
+-- Altera informação de cliente (21)
 CALL alteraCliente(21, 'Jerónimo Martins', 'Empresa', '250912378');
 
 -- Adiciona Cliente

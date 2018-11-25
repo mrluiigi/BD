@@ -22,6 +22,7 @@ GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoAnimal TO 'funcionario'@'l
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.ProdutoVegetal TO 'funcionario'@'localhost';
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.Recurso TO 'funcionario'@'localhost';
 GRANT DELETE, INSERT, SELECT, UPDATE ON quinta.Plantação TO 'funcionario'@'localhost';
+GRANT INSERT ON quinta.Encomenda TO 'funcionario'@'localhost';
 
 
 -- Permissoes para os procedures
@@ -42,6 +43,7 @@ GRANT EXECUTE ON PROCEDURE quinta.recursosConsumidosPlantacao TO 'funcionario'@'
 GRANT EXECUTE ON PROCEDURE quinta.recursosConsumidosAnimal TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoAnimal TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoPlantacao TO 'funcionario'@'localhost'; 
+GRANT EXECUTE ON PROCEDURE quinta.addEncomenda TO 'funcionario'@'localhost'; 
 
 -- Premissoes para funções
 GRANT EXECUTE ON FUNCTION quinta.existeAnimal TO 'funcionario'@'localhost'; 

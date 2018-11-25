@@ -157,20 +157,3 @@ BEGIN
 	END;
 END %%
 DELIMITER ;
-
--- Adiciona Cliente
-DELIMITER %%
-CREATE PROCEDURE addCliente(nifC INT, novoNome VARCHAR(45), novoTipo VARCHAR(45), novoContacto CHAR(9))
-BEGIN
-	BEGIN
-        START TRANSACTION;
-        
-		INSERT INTO Cliente
-			(NIF, Nome, Tipo, Contacto)
-			VALUES
-            (nifC, novoNome, novoTipo, novoContacto);
-            
-		COMMIT;
-	END;
-END %%
-DELIMITER ;
