@@ -167,18 +167,18 @@ INSERT INTO AnimalRecurso
 INSERT INTO cliente
                 (NIF, Nome, Tipo, Contacto)
         VALUES
-        (1, 'Pedro Barbosa', 'Individual', '937573882'),
-        (2, 'José Pinto', 'Individual', '911326812'),
-        (3, 'Luís Correia', 'Individual', '932444512'),
-        (4, 'Ângelo Sousa', 'Individual', '923612821'),
-        (5, 'Diogo Pereira', 'Individual', '937172018'),
-        (6, 'Margarida Maia', 'Individual', '964324187'),
+        (1, 'Pedro Barbosa', 'I', '937573882'),
+        (2, 'José Pinto', 'I', '911326812'),
+        (3, 'Luís Correia', 'I', '932444512'),
+        (4, 'Ângelo Sousa', 'I', '923612821'),
+        (5, 'Diogo Pereira', 'I', '937172018'),
+        (6, 'Margarida Maia', 'I', '964324187'),
         
-        (7, 'Roupas, Lda', 'Empresa', '252900345'),
-        (8, 'Ervas Medicinais, Lda', 'Empresa', '254272138'),
-        (9, 'Ração Armindo', 'Empresa', '251298458'),
-        (10, 'Talho Macedo', 'Empresa', '251977660'),
-        (11, 'Lacticinios Antóni', 'Empresa', '253473129');
+        (7, 'Roupas, Lda', 'E', '252900345'),
+        (8, 'Ervas Medicinais, Lda', 'E', '254272138'),
+        (9, 'Ração Armindo', 'E', '251298458'),
+        (10, 'Talho Macedo', 'E', '251977660'),
+        (11, 'Lacticinios Antóni', 'E', '253473129');
         
         -- SELECT * FROM cliente;
 
