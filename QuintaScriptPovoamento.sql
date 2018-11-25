@@ -41,21 +41,21 @@ INSERT INTO animal
         ('Coelho europeu', 1.391 , '2017/04/03', '2022/04/03', 'M', 'V'),
         ('Coelho europeu', 1.187 , '2017/04/03', '2022/04/03', 'F', 'V'),
         ('Coelho europeu', 1.095 , '2017/04/03', '2022/04/03', 'M', 'V'),
-        ('Coelho europeu', 1.142 , '2017/04/03', '2022/04/03', 'F', 'V');
-        -- 30
-        -- Leite	
-		('Ovelha Lacaune', 72, 2016/02/28, 2020/06/01, 'F', 'V'),
-        ('Ovelha Lacaune', 73, 2016/01/31, 2020/04/02, 'F', 'V'),
-        ('Ovelha Lacaune', 77, 2015/04/02, 2021/07/04, 'F', 'V'),
-        ('Ovelha Lacaune', 75, 2015/11/03, 2022/01/05, 'F', 'V'),
-        ('Ovelha Lacaune', 74, 2015/08/14, 2021/09/16, 'F', 'V'),
-        -- Lã e carne
-        ('Ovelha Merino', 50, 2014/05/07, 2018/12/03, 'F', 'V'), 
-        ('Ovelha Merino', 55, 2015/09/23, 2019/11/28, 'M', 'V'),
-        ('Ovelha Merino', 53, 2015/09/22, 2019/12/22, 'M', 'M'),
-        ('Ovelha Merino', 47, 2016/04/27, 2020/06/01, 'F', 'M'),
-        ('Ovelha Merino', 58, 2016/10/16, 2020/11/18, 'M', 'M');
-        
+        ('Coelho europeu', 1.142 , '2017/04/03', '2022/04/03', 'F', 'V'),
+        -- 30	
+		('Ovelha Lacaune', 72, '2016/02/28', '2020/06/01', 'F', 'V'),
+        ('Ovelha Lacaune', 73, '2016/01/31', '2020/04/02', 'F', 'V'),
+        ('Ovelha Lacaune', 77, '2015/04/02', '2021/07/04', 'F', 'V'),
+        ('Ovelha Lacaune', 75, '2015/11/03', '2022/01/05', 'F', 'V'),
+        ('Ovelha Lacaune', 74, '2015/08/14', '2021/09/16', 'F', 'V'),
+		-- 35
+        ('Ovelha Merino', 50, '2014/05/07', '2018/12/03', 'F', 'V'), 
+        ('Ovelha Merino', 55, '2015/09/23', '2019/11/28', 'M', 'V'),
+        ('Ovelha Merino', 53, '2015/09/22', '2019/12/22', 'M', 'M'),
+        ('Ovelha Merino', 47, '2016/04/27', '2020/06/01', 'F', 'M'),
+        ('Ovelha Merino', 58, '2016/10/16', '2020/11/18', 'M', 'M');
+
+		-- SELECT * FROM animal;
 
 INSERT INTO recurso
 		(Tipo, Fornecedor, Preco, Stock)
@@ -65,7 +65,10 @@ INSERT INTO recurso
         ('Herbicida', 'Bayer', 20, 124),
         ('Farinha para galinhas', 'Loja do Gusto', 0.12, 700),
         ('Farinha para vacas', 'Utilagro', 0.25, 1820),
-        ('Farinha para coelhos', 'Utilagro', 0.17, 1300);
+        ('Farinha para coelhos', 'Utilagro', 0.17, 1300),
+        ('Farinha para ovelhas', 'Utilagro', 0.21, 1500);
+        
+        -- SELECT * FROM recurso;
 
 INSERT INTO AnimalRecurso
 		(Animal_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
@@ -135,18 +138,31 @@ INSERT INTO AnimalRecurso
 		(27, 6, 129, '2017-11-17'),
 		(28, 6, 154, '2017-11-17'),
 		(29, 6, 143, '2017-11-17'),
-        (30, 6, 188, '2017-11-17');
+        (30, 6, 188, '2017-11-17'),
         
-      
-
-
-
--- Cuidado, aldrabice 
--- SET foreign_key_checks = 0;
--- TRUNCATE  TABLE AnimalRecurso;
--- SET foreign_key_checks = 1;
-
--- SELECT * FROM AnimalRecurso;
+        (31, 1, 149, '2018/11/20'),
+        (32, 1, 152, '2018/11/20'),
+        (33, 1, 137, '2018/11/20'),
+        (34, 1, 161, '2018/11/20'),
+        (35, 1, 155, '2018/11/20'),
+        (31, 7, 100, '2018/11/20'),
+        (32, 7, 107, '2018/11/20'),
+        (33, 7, 110, '2018/11/20'),
+        (34, 7, 105, '2018/11/20'),
+        (35, 7, 103, '2018/11/20'),
+        
+        (36, 1, 160, '2018/11/20'),
+        (37, 1, 165, '2018/11/20'),
+        (38, 1, 163, '2018/09/28'),
+        (39, 1, 157, '2018/09/28'),
+        (40, 1, 148, '2018/09/28'),
+        (36, 7, 110, '2018/11/20'),
+        (37, 7, 116, '2018/11/20'),
+        (38, 7, 113, '2018/09/28'),
+        (39, 7, 107, '2018/09/28'),
+        (40,7 , 109, '2018/09/28');
+        
+       -- SELECT * FROM AnimalRecurso;
 
 INSERT INTO cliente
                 (NIF, Nome, Tipo, Contacto)
@@ -156,27 +172,15 @@ INSERT INTO cliente
         (3, 'Luís Correia', 'Individual', '932444512'),
         (4, 'Ângelo Sousa', 'Individual', '923612821'),
         (5, 'Diogo Pereira', 'Individual', '937172018'),
-        (6, 'André Guimarães', 'Individual', '923499865'),
-        (7, 'Ricardo Ribeiro', 'Individual', '933475867'),
-        (8, 'Andreia Sousa', 'Individual', '912341786'),
-        (9, 'Joana Matos', 'Individual', '912091344'),
-        (10, 'Margarida Maia', 'Individual', '964324187'),
-        (11, 'Frutas, Lda', 'Empresa', '252900345'),
-        (12, 'Adubos e Adubos', 'Empresa', '254272138'),
-        (13, 'Ração Armindo', 'Empresa', '251298458'),
-        (14, 'Macedos e Companhia, Lda', 'Empresa', '251977660'),
-        (15, 'Gym N.png', 'Empresa', '253696956'),
-        (16, 'César Augusto', 'Individual', '965005179'),
-        (17, 'Jonh Luís', 'Individual', '969696969'),
-        (18, 'Guilherme Viveiros', 'Individual', '926790525'),
-        (19, 'Marco Dantas', 'Individual', '921236549'),
-        (20, 'Daniel Costa', 'Individual', '987456321'),
-        (21, 'Carlos Castro', 'Individual', '967834512');
+        (6, 'Margarida Maia', 'Individual', '964324187'),
         
+        (7, 'Roupas, Lda', 'Empresa', '252900345'),
+        (8, 'Ervas Medicinais, Lda', 'Empresa', '254272138'),
+        (9, 'Ração Armindo', 'Empresa', '251298458'),
+        (10, 'Talho Macedo', 'Empresa', '251977660'),
+        (11, 'Lacticinios Antóni', 'Empresa', '253473129');
         
-
--- SELECT * FROM cliente;
-
+        -- SELECT * FROM cliente;
 
 INSERT INTO funcionário
                 (Nome, Tipo, Salário, Contacto, Horário)
@@ -194,7 +198,7 @@ INSERT INTO funcionário
         ('João Matos', 'Animaais' , 890, '917694787', 'D'),
         ('Andreia Rodrigues', 'Animais', 900, '936726675', 'S');
 
--- SELECT * FROM funcionário;
+		-- SELECT * FROM funcionário;
 
 
 INSERT INTO plantação
@@ -211,7 +215,7 @@ INSERT INTO plantação
         ('Estufa', 5, 6),
         ('Exterior', 5, 6);
 
--- SELECT * FROM plantação;
+		-- SELECT * FROM plantação;
 
 INSERT INTO FuncionárioAnimal
 	(Funcionário_Número, Animal_ID)
@@ -264,6 +268,8 @@ INSERT INTO FuncionárioAnimal
         (12, 39),
         (12, 40);
         
+        -- SELECT * FROM FuncionárioAnimal;
+        
 INSERT INTO FuncionárioPlantação
 	(Funcionário_Número, Plantação_ID)
     VALUES
@@ -285,97 +291,211 @@ INSERT INTO FuncionárioPlantação
         
         (2 , 9),
         (1 , 10);
+        
+        -- SELECT * FROM funcionárioPlantação;
 
 INSERT INTO PlantaçãoRecurso
 		(Plantação_ID, Recurso_ID, QuantidadeConsumida, DataUltimoConsumo)
         VALUES
         (1, 1, 100, '2018-11-20'),
+        (1, 2, 3, '2018/11/01'),
+        (1, 3, 1, '2018/10/01'),
+        
         (2, 1, 100, '2018-11-20'),
+        (2, 2, 3, '2018/11/01'),
+        (2, 3, 1, '2018/10/01'),
+        
         (3, 1, 100, '2018-11-20'),
-        (4, 1, 100, '2018-11-20');
-
-
+        (3, 2, 3, '2018/11/01'),
+        (3, 3, 1, '2018/10/01'),
+        
+        (4, 1, 100, '2018-11-20'),
+        (4, 2, 3, '2018/11/01'),
+        (4, 3, 1, '2018/10/01'),
+        
+        (5, 1, 100, '2018-11-20'),
+        (5, 2, 3, '2018/11/01'),
+        (5, 3, 1, '2018/10/01'),
+        
+        (6, 1, 100, '2018-11-20'),
+        (6, 2, 3, '2018/11/01'),
+        (6, 3, 1, '2018/10/02'),
+        
+        (7, 1, 100, '2018-11-20'),
+        (7, 2, 3, '2018/11/01'),
+        (7, 3, 1, '2018/10/01'),
+        
+        (8, 1, 100, '2018-11-20'),
+        (8, 2, 3, '2018/11/01'),
+        (8, 3, 1, '2018/10/01'),
+        
+        (9, 1, 100, '2018-11-20'),
+        (9, 2, 3, '2018/11/01'),
+        (9, 3, 1, '2018/10/01'),
+        
+        (10, 1, 100, '2018-11-20'),
+		(10, 2, 3, '2018/11/01'),
+        (10, 3, 1, '2018/10/01');
+        
+		-- SELECT * FROM plantaçãoRecurso;
 
 INSERT INTO produtoanimal
                 (Designacao, Preco, Stock, Validade, Animal_ID)
         VALUES
-        ('Ovos', 0.89, 3, "2017-04-23", 8),
-        ('Ovos', 0.89, 2, "2017-03-14", 9),
-        ('Ovos', 0.89, 5, "2017-03-21", 10),
-        ('Ovos', 0.89, 4, "2017-04-01", 11),
-        ('Ovos', 0.89, 4, "2017-03-19", 12),
-        ('Ovos', 0.89, 3, "2017-05-23", 8),
-        ('Ovos', 0.89, 2, "2017-04-14", 9),
-        ('Ovos', 0.89, 5, "2017-04-21", 10),
-        ('Ovos', 0.89, 4, "2017-05-01", 11),
-        ('Ovos', 0.89, 4, "2017-04-19", 12),
-		('Ovos', 0.89, 4, "2018-04-09", 13),
-		('Ovos', 0.89, 4, "2018-04-14", 14),
-		('Ovos', 0.89, 4, "2018-04-06", 16),
-        ('Ovos', 0.89, 4, "2018-03-23", 13),
-		('Ovos', 0.89, 4, "2018-04-01", 14),
-		('Ovos', 0.89, 4, "2018-03-21", 16),
-        ('Leite de Vaca', 1.19, 500, "2019-05-23", 2),
-        ('Carne de Vaca', 17.23, 500, "2018-12-20", 2),
-        ('Lã', 7.75, 10, "", 40),
-        ('Lã', 7.75, 8, "", 39),
-        ('Lã', 7.75, 11, "", 38),
-        ('Carne de Ovelha', 8.99, 30, "2018/12/22", 38),
-        ('Carne de Ovelha', 8.99, 33, "2019/01/12", 37),
-        ('Carne de Ovelha', 8.99, 32, "2019/01/14", 36),
-        ('Leite de Ovelha', 3.15, 50, "2019/05/01", 31),
-        ('Leite de Ovelha', 3.15, 45, "2019/06/10", 32),
-        ('Leite de Ovelha', 3.15, 40, "2019/06/16", 33);
+        ('Ovos', 0.89, 0, '2017-04-23', 8), -- 1
+        ('Ovos', 0.89, 2, '2017-05-23', 8), -- 2
+        
+        ('Ovos', 0.89, 0, '2017-03-14', 9), -- 3
+        ('Ovos', 0.89, 1, '2017-04-14', 9), -- 4
+		
+        ('Ovos', 0.89, 0, '2017-03-21', 10),
+        ('Ovos', 0.89, 1, '2017-04-21', 10),
+        
+        ('Ovos', 0.89, 0, '2017-04-01', 11),
+        ('Ovos', 0.89, 2, '2017-05-01', 11),
+        
+        ('Ovos', 0.89, 0, '2017-03-19', 12),
+        ('Ovos', 0.89, 0, '2017-04-19', 12), -- 10
+        
+		('Ovos', 0.89, 0, '2018-04-09', 13),
+        ('Ovos', 0.89, 0, '2018-03-23', 13),
+        
+		('Ovos', 0.89, 0, '2018-04-14', 14),
+        ('Ovos', 0.89, 0, '2018-04-01', 14), -- 14
+        
+		('Ovos', 0.89, 0, '2018-04-06', 16), -- 15
+		('Ovos', 0.89, 1, '2018-03-21', 16), -- 16
+        
+        ('Leite de Vaca', 1.19, 500, '2019-02-23', 1), -- 17
+        ('Leite de Vaca', 1.19, 473, '2019-01-17', 2), -- 18
+        ('Leite de Vaca', 1.19, 389, '2019-02-03', 3), -- 19
+        ('Leite de Vaca', 1.19, 430, '2019-01-22', 4), -- 20
+        ('Leite de Vaca', 1.19, 238, '2019-02-26', 5), -- 21
+        ('Leite de Vaca', 1.19, 300, '2019-02-07', 6), -- 22
+        
+        ('Carne de Vaca', 17.23, 29, '2018-11-15', 1), -- 23
+        ('Carne de Vaca', 17.23, 40, '2018-12-20', 2), -- 24
+        
+		('Lã', 7.75, 0, null, 38), -- 25
+        ('Lã', 7.75, 0, null, 39), -- 26
+        ('Lã', 7.75, 0, null, 40), -- 27
+        
+        ('Carne de Ovelha', 8.99, 3, '2019/01/14', 36), -- 28
+        ('Carne de Ovelha', 8.99, 1, '2019/01/12', 37), -- 29
+        ('Carne de Ovelha', 8.99, 0, '2018/12/22', 38), -- 30
+        
+        ('Leite de Ovelha', 3.15, 21, '2019/05/01', 31), -- 31
+        ('Leite de Ovelha', 3.15, 12, '2019/06/10', 32), -- 32
+        ('Leite de Ovelha', 3.15, 3, '2019/06/16', 33); -- 33
 
--- SELECT * FROM produtoanimal;
+		-- SELECT * FROM produtoanimal;
 
 
 INSERT INTO produtovegetal
                 (Designacao, Preco, Stock, Validade, Plantação_ID)
         VALUES
-        ('Cenouras', 0.75, 1500, "2018-12-23", 1),
-        ('Batatas', 5.45, 1750, "2018-12-21", 2),
-        ('Cebola', 1.13, 2000, "2019-1-2", 3),
-        ('Beterraba', 6.95, 1000, "2019-1-12", 4),
-        ('Camomila', 40, 100, "2019-05-13", 5),
-        ('Agrião', 11.93, 200, "2019-06-14", 6),
-        ('Alfazema', 37.80, 115, "2019-8-11", 7),
-        ('Rosas', 0.47, 350, "2018-11-30", 8),
-        ('Papoilas', 0.87, 300, "2018-11-30", 9),
-        ('Tulipas', 0.56, 275, "2018-11-30", 10);
+        ('Cenouras', 0.75, 432, '2018-12-23', 1),
+        ('Batatas', 1.79, 489, '2018-12-21', 2),
+        ('Cebola', 1.13, 500, '2019-1-2', 3),
+        ('Beterraba', 6.95, 328, '2019-1-12', 4),
+        ('Camomila', 40, 20, '2019-05-13', 5),
+        ('Agrião', 11.93, 72, '2019-06-14', 6),
+        ('Alfazema', 37.80, 67, '2019-8-11', 7),
+        ('Rosas', 0.47, 278, '2018-11-30', 8),
+        ('Papoilas', 0.87, 139, '2018-11-30', 9),
+        ('Tulipas', 0.56, 184, '2018-11-30', 10);
 
--- SELECT * FROM produtovegetal;
+		-- SELECT * FROM produtovegetal;
 
 INSERT INTO encomenda
                 (Valor, Data, Cliente)
         VALUES
-        (2500, "2018-06-12", 1),
-        (3000, "2018-11-09", 2),
-        (750, "2018-11-03", 3),
-        (250, "2018-4-23", 4),
-        (10000, "2018-1-11", 5);
+        (13.35, '2018-06-12', 1),
+        (18.69, '2018-11-09', 2),
+        (137.38, '2018-11-03', 3),
+        (114.93, '2018-4-23', 4),
+        (82.59, '2018-1-11', 5),
+        (72.65, '2018/11/10', 6),
+        
+        (69.75, '2018/10/20', 7),
+        (6759.25, '2018/10/13', 8),
+        (6462.5, '2018/10/11', 9),
+        (3554.65, '2018/09/30', 10),
+        (1085.7, '2018/10/03', 11);
+        
+        -- SELECT * FROM encomenda;
 
 INSERT INTO produtoAnimalEncomenda
                 (ProdutoAnimal_ID, Encomenda_ID, Quantidade)
         VALUES
-        (1, 3, 50),
-        (2, 4, 100),
-        (3, 2, 10),
-        (4, 1, 5),
-        (5, 5, 20),
-        (2, 5, 10),
-        (1, 4, 24);
+        (1, 1, 3),
+        (2, 1, 3),
+        (3, 1, 2),
+        (4, 1, 2),
+        (5, 1, 5),
+        
+        (6, 2, 5),
+        (7, 2, 4),
+        (8, 2, 4),
+        (9, 2, 4),
+        (10, 2, 4),
+        
+        (11, 3, 4),
+        (12, 3, 4),
+        (13, 3, 4),
+        
+        (14, 4, 4),
+        (15, 4, 4),
+        (16, 4, 4),
+
+        (17, 5, 10),
+        (13, 5, 3),
+        
+        (17, 6, 1),
+        (23, 6, 4),
+        (31, 6, 5),
+        
+        (25, 7, 3),
+        (26, 7, 3),
+        (27, 7, 3),
+        
+        (23 , 10, 100),
+        (24 , 10, 75),
+        (28 , 10, 20),
+        (29 , 10, 20),
+        (30 , 10, 20),
+        
+        (17, 11, 300),
+        (19, 11, 150),
+        (18, 11, 150),
+        (31, 11, 50),
+        (32, 11, 45),
+        (33, 11, 23);
+        
+        -- SELECT * FROM produtoAnimalEncomenda;
         
 INSERT INTO produtoVegetalEncomenda
                 (ProdutoVegetal_ID, Encomenda_ID, Quantidade)
-        VALUES
-        (1, 2, 20),
+        VALUES        
         (2, 3, 55),
         (3, 3, 25),
-        (8, 1, 10),
+        
         (4, 4, 15),
-        (6, 5, 5);
         
+        (8, 5, 10),
+        (9, 5, 10),
+        (10, 5, 10),
         
-
--- SELECT * FROM encomenda;
+        (1, 6, 5),
+        (2, 6, 5),
+        (8, 6, 15),
+        
+        (5, 8, 75),
+        (6, 8, 125),
+        (7, 8, 60),
+        
+        (1, 9, 1000),
+        (2, 9, 1250),
+        (4, 9, 500);
+        
+        -- SELECT * FROM produtoVegetalEncomenda;
