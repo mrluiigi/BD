@@ -1,7 +1,7 @@
 -- Remove stock do recurso animal e regista que animal consumiu e que quantidade consumiu e a data do ultimo consumo do mesmo animal
-DROP PROCEDURE IF EXISTS removeStockRecursoAnimal;
+DROP PROCEDURE IF EXISTS animalConsomeRecurso;
 DELIMITER //
-CREATE PROCEDURE removeStockRecursoAnimal(idRecurso INT, quantidade INT, idAnimal INT)
+CREATE PROCEDURE animalConsomeRecurso(idRecurso INT, quantidade INT, idAnimal INT)
 BEGIN
 	IF(quantidadeRecurso(idRecurso) > quantidade AND existeAnimal(idAnimal)) THEN
         BEGIN
@@ -24,6 +24,30 @@ BEGIN
 
 		COMMIT;
         END;
+	END IF;
+END //
+DELIMITER ;
+
+
+-- Remove stock do recurso dado e regista que plantação consumiu, que quantidade e a data do último consumo da plantação
+DROP PROCEDURE IF EXISTS PlantacaoConsomeRecurso;
+
+DELIMITER //
+CREATE PROCEDURE PlantacaoConsomeRecurso(idRecurso INT, quantidade INT, idPlantacao INT)
+BEGIN
+	IF(quantidadeRecurso(idRecurso) > quantidade) 
+		THEN
+        START TRANSACTION;
+        
+			UPDATE plantaçãorecurso
+				SET QuantidadeConsumida = QuantidadeConsumida + quantidade,
+					DataUltimoConsumo = NOW()
+				WHERE Recurso_ID = idRecurso AND Plantação_ID = idPlantacao;
+			UPDATE recurso
+				SET Stock = Stock - quantidade
+				WHERE ID = idRecurso;
+                
+		COMMIT;
 	END IF;
 END //
 DELIMITER ;
@@ -173,22 +197,18 @@ DELIMITER %%
 CREATE PROCEDURE addEncomenda(val FLOAT, dataE DATE, nifCliente INT, idPA INT, qtdA INT, idPV INT, qtdV INT)
 	BEGIN
 		DECLARE idEnc INT;
-        
         START TRANSACTION;
-        
         IF((qtdA > quantidadePA(idPA) OR qtdA = 0) AND (qtdV = 0 OR qtdV > quantidadePV(idPV)))
         THEN 
 			ROLLBACK;
         END IF;
-        
-        
         INSERT INTO Encomenda
 			(Valor, Data, Cliente)
 			VALUES
 			(val, dataE, nifCliente);
-            
+
 		SELECT LAST_INSERT_ID() INTO idEnc;
-        
+
         IF(qtdA <= quantidadePA(idPA)) 
 		THEN 
 			UPDATE ProdutoAnimal 
@@ -199,7 +219,6 @@ CREATE PROCEDURE addEncomenda(val FLOAT, dataE DATE, nifCliente INT, idPA INT, q
                 VALUES
                 (idPA, idEnc, qtdA);
 		END IF;
-        
         IF(qtdV <= quantidadePV(idPV))
         THEN
 			UPDATE ProdutoVegetal 
@@ -210,9 +229,7 @@ CREATE PROCEDURE addEncomenda(val FLOAT, dataE DATE, nifCliente INT, idPA INT, q
                 VALUES
                 (idPV, idEnc, qtdV);
 		END IF;
-        
 		COMMIT;
-
 	END %%
 DELIMITER ;
 

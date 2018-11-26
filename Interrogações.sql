@@ -186,23 +186,22 @@ CREATE PROCEDURE valorVendasIntervalo (inicio DATE, fim DATE)
 DELIMITER ;
 
 
--- Valor das vendas totais de um cliente
-
+-- Valor total das vendas de um cliente
+drop function totalVendasCliente;
 DELIMITER %%
 CREATE FUNCTION totalVendasCliente(id INT) RETURNS INT
 READS SQL DATA
 	BEGIN
 		DECLARE total INT;
         
-		SELECT Valor INTO total FROM cliente
+		SELECT SUM(Valor) INTO total FROM cliente
 		INNER JOIN encomenda ON encomenda.Cliente = cliente.NIF 
 			WHERE cliente.NIF = id;
         
         RETURN total;
 	END %%
 DELIMITER ;
--- SELECT totalVendasCliente(2);
-
+-- SELECT totalVendasCliente(1);
 
 -- Produtos do animal x
 

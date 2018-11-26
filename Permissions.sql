@@ -41,12 +41,12 @@ GRANT EXECUTE ON PROCEDURE quinta.passouValidadePlanta TO 'funcionario'@'localho
 GRANT EXECUTE ON PROCEDURE quinta.produtosDoAnimal TO 'funcionario'@'localhost';  
 GRANT EXECUTE ON PROCEDURE quinta.recursosConsumidosPlantacao TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON PROCEDURE quinta.recursosConsumidosAnimal TO 'funcionario'@'localhost'; 
-GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoAnimal TO 'funcionario'@'localhost'; 
-GRANT EXECUTE ON PROCEDURE quinta.removeStockRecursoPlantacao TO 'funcionario'@'localhost'; 
+GRANT EXECUTE ON PROCEDURE quinta.animalConsomeRecurso TO 'funcionario'@'localhost'; 
+GRANT EXECUTE ON PROCEDURE quinta.PlantacaoConsomeRecurso TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON PROCEDURE quinta.addEncomenda TO 'funcionario'@'localhost'; 
 
 
--- Premissoes para funções
+-- Permissões para funções
 GRANT EXECUTE ON FUNCTION quinta.existeAnimal TO 'funcionario'@'localhost'; 
 GRANT EXECUTE ON FUNCTION quinta.quantidadeRecurso TO 'funcionario'@'localhost'; 
 
