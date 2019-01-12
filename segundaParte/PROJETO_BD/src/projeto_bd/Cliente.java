@@ -13,9 +13,20 @@ import java.util.List;
  */
 public class Cliente extends Document{
     private int NIF;
+    private String nome;
     private String tipo;
     private int contacto;
     private List<Encomenda> encomendas;
+
+    public Cliente(int NIF, String nome, String tipo, int contacto, List<Encomenda> encomendas) {
+        this.NIF = NIF;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.contacto = contacto;
+        this.encomendas = encomendas;
+    }
+    
+    
 
     public int getNIF() {
         return NIF;

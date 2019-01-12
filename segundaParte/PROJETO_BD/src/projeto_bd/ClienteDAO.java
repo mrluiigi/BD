@@ -8,47 +8,49 @@ package projeto_bd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  *
  * @author Barbosa
  */
-public class ClienteDAO {
-    public static ArrayList<Document> getAll () {
-        Connection con = null;
+public class ClienteDAO{
+    
+    public static ArrayList<Document> getAll (Connection con) {        
         ArrayList<Document> r = new ArrayList<>();
 
         try {
-            con = Connect.connect();
-            PreparedStatement ps = con.prepareStatement("SELECT P.AreaPlantada_m2 AS Area, P.DataInicio AS DataI, P.DataFim AS DataF, L.Designio AS Lote, Q.Nome AS Quinta, Prod.Nome AS Produto, P.Despesa_euros AS Desp\n" +
-                                                        "FROM Plantacoes as P\n" +
-                                                        "JOIN Lotes AS L\n" +
-                                                        "ON L.ID = P.Lotes_ID\n" +
-                                                        "JOIN Quintas AS Q\n" +
-                                                        "ON Q.ID = L.Quintas_ID\n" +
-                                                        "JOIN Produtos AS Prod\n" +
-                                                        "ON Prod.ID = P.Produto_ID\n" +
-                                                        "ORDER BY P.DataInicio DESC");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Cliente");
+            
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Plantacao p = new Plantacao();
-                PlantacaoComDataFim pn = null;
+                int nif = Integer.parseInt(rs.getString("NIF"));
+                String nome = rs.getString("Nome");
+                String tipo = rs.getString("Tipo");
+                int contacto = Integer.parseInt(rs.getString("Contacto"));
                 
-                if (rs.getDate("DataF") != null) {
-                    pn = new PlantacaoComDataFim(p);
-                    pn.DataFim = "ISODate(\"" + rs.getDate("DataF") + "T00:00:00Z\")";
-                }
+                PreparedStatement pes = con.prepareStatement("SELECT * FROM Encomenda AS E WHERE E.Cliente = " + nif + ";");
+                ResultSet es = pes.executeQuery();
+                
+                ArrayList<Encomenda> encomendas;
+                while(es.next()){
+                    int id = Integer.parseInt(es.getString("ID"));
+                    float valor = Float.parseFloat(es.getString("Valor"));
+                    LocalDate data = LocalDate.parse(es.getString("Data"));
 
-                if(pn == null) {
-                    r.add(p);
-                } else {
-                    r.add(pn);
+                    //Encomenda e = new Encomenda()
                 }
+                
+               // Cliente c = new Cliente(nif, nome, tipo, contacto);
+                
+                
+                
             }
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
