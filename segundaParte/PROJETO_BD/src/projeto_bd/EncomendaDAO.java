@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto_bd;
 
 import java.sql.Connection;
@@ -23,8 +18,7 @@ public class EncomendaDAO {
         ArrayList<Document> r = new ArrayList<>();
 
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Encomenda AS E" +
-                                                        ";");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Encomenda AS E;");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){

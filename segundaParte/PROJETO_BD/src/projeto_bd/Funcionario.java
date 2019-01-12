@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto_bd;
 
 import java.util.List;
@@ -11,15 +6,27 @@ import java.util.List;
  *
  * @author Barbosa
  */
-public class Funcionario {
+public class Funcionario extends Document{
     private int numero;
     private String nome;
     private int tipo;
     private float salario;
-    private int contacto;
-    private int horario;
-    private List<String> sitiosOndeTrabalha;
+    private String contacto;
+    private char horario;
+    private List<Integer> animais;
+    private List<Integer> plantacoes;
 
+    public Funcionario(int numero, String nome, int tipo, float salario, String contacto, char horario, List<Integer> animais, List<Integer> plantacoes) {
+        this.numero = numero;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.salario = salario;
+        this.contacto = contacto;
+        this.horario = horario;
+        this.animais = animais;
+        this.plantacoes = plantacoes;
+    }
+    
     public int getNumero() {
         return numero;
     }
@@ -36,15 +43,21 @@ public class Funcionario {
         return salario;
     }
 
-    public int getContacto() {
+    public String getContacto() {
         return contacto;
     }
 
-    public int getHorario() {
+    public char getHorario() {
         return horario;
     }
 
-    public List<String> getSitiosOndeTrabalha() {
-        return sitiosOndeTrabalha;
+    public List<Integer> getAnimais() {
+        return animais;
     }
+
+    public List<Integer> getPlantacoes() {
+        return plantacoes;
+    }
+    
+    
 }
