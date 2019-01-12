@@ -11,13 +11,23 @@ import java.time.LocalDate;
  *
  * @author Barbosa
  */
-public class Produto {
+public class Produto extends Document{
     private int id;
     private String designacao;
     private float preco;
     private int stock;
     private LocalDate validade;
 
+    public Produto(int id, String designacao, float preco, int stock, LocalDate validade) {
+        this.id = id;
+        this.designacao = designacao;
+        this.preco = preco;
+        this.stock = stock;
+        this.validade = validade;
+    }
+
+    
+    
     public int getId() {
         return id;
     }

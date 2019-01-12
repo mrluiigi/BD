@@ -27,6 +27,8 @@ public class PROJETO_BD {
         String user = "gestor";
         String password = "manel42";
         Connection con = DriverManager.getConnection(connection, user, password);
+        
+        ProdutoAnimalDAO.getAll(con);
     }
     
 }
