@@ -55,12 +55,6 @@ public class EncomendaDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         return r;
     }

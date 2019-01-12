@@ -16,22 +16,24 @@ public class Cliente extends Document{
     private String nome;
     private String tipo;
     private int contacto;
-    private List<Encomenda> encomendas;
+    private List<Integer> encomendas;
 
-    public Cliente(int NIF, String nome, String tipo, int contacto, List<Encomenda> encomendas) {
+    public Cliente(int NIF, String nome, String tipo, int contacto, List<Integer> encomendas) {
         this.NIF = NIF;
         this.nome = nome;
         this.tipo = tipo;
         this.contacto = contacto;
         this.encomendas = encomendas;
     }
-    
-    
 
     public int getNIF() {
         return NIF;
     }
 
+    public String getNome() {
+        return nome;
+    }
+    
     public String getTipo() {
         return tipo;
     }
@@ -40,7 +42,7 @@ public class Cliente extends Document{
         return contacto;
     }
 
-    public List<Encomenda> getEncomendas() {
+    public List<Integer> getEncomendas() {
         return encomendas;
     }
 }
