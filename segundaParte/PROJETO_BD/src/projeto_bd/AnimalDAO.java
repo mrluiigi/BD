@@ -30,8 +30,8 @@ public class AnimalDAO {
                 int id = Integer.parseInt(rs.getString("ID"));
                 String especie = rs.getString("Espécie");
                 float peso = Float.parseFloat(rs.getString("Peso"));
-                LocalDate dataN = LocalDate.parse(rs.getString("DataNascimento"));
-                LocalDate validadeV = LocalDate.parse(rs.getString("ValidadeVacina"));
+                String dataN = rs.getString("DataNascimento");
+                String validadeV = rs.getString("ValidadeVacina");
                 String genero = rs.getString("Género");
                 String vida = rs.getString("Vida");
                 

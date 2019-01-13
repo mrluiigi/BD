@@ -5,7 +5,6 @@
  */
 package projeto_bd;
 
-import java.time.LocalDate;
 import java.util.List;
 import org.json.simple.JSONObject;
 
@@ -17,13 +16,13 @@ public class Animal extends Document{
     private int id;
     private String especie;
     private float peso;
-    private LocalDate dataNascimento;
-    private LocalDate validadeVacina;
+    private String dataNascimento;
+    private String validadeVacina;
     private String genero;
     private String vida;
     private List<Consumo> recursosConsumidos;
 
-    public Animal(int id, String especie, float peso, LocalDate dataNascimento, LocalDate validadeVacina, String genero, String vida, List<Consumo> recursosConsumidos) {
+    public Animal(int id, String especie, float peso, String dataNascimento, String validadeVacina, String genero, String vida, List<Consumo> recursosConsumidos) {
         this.id = id;
         this.especie = especie;
         this.peso = peso;
@@ -48,11 +47,11 @@ public class Animal extends Document{
         return peso;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public LocalDate getValidadeVacina() {
+    public String getValidadeVacina() {
         return validadeVacina;
     }
 
