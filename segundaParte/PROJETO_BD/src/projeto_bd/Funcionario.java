@@ -73,12 +73,12 @@ public class Funcionario extends Document{
         for(Integer e : this.animais) {
             listAnimais.add(e);
         }
-        obj.put("Encomendas", listAnimais);
+        obj.put("ListaAnimais", listAnimais);
         JSONArray listPlantacoes = new JSONArray();
         for(Integer e : this.plantacoes) {
             listPlantacoes.add(e);
         }
-        obj.put("Encomendas", listPlantacoes);
+        obj.put("ListaPlantacoes", listPlantacoes);
         return obj;
     }
     

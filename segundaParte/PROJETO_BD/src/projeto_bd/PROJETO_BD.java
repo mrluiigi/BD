@@ -41,7 +41,7 @@ public class PROJETO_BD {
         writeJSON(AnimalDAO.getAll(con),"Animal.json");   
         writeJSON(PlantacaoDAO.getAll(con),"Plantacao.json");  
         writeJSON(EncomendaDAO.getAll(con),"Encomenda.json");  
-        writeJSON(FuncionarioDAO.getAll(con),"Funcionario.json");  
+        writeJSON(FuncionarioDAO.getAll(con),"Funcionario.json");
     }
     
 }
