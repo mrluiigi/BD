@@ -30,7 +30,7 @@ public class PlantacaoDAO {
                 int id = Integer.parseInt(rs.getString("ID"));
                 String tipo = rs.getString("Tipo");
                 float area = Float.parseFloat(rs.getString("Area"));
-                int mesColheita = Integer.parseInt("MesColheita");
+                int mesColheita = Integer.parseInt(rs.getString("MesColheita"));
                 
                 List<Consumo> consumo = new ArrayList<>();
                 PreparedStatement psP = con.prepareStatement("SELECT PR.Recurso_ID, PR.QuantidadeConsumida, PR.DataUltimoConsumo FROM PlantaçãoRecurso AS PR WHERE PR.Plantação_ID =" + id + ";");

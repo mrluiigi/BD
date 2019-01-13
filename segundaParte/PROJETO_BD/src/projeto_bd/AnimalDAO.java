@@ -32,8 +32,8 @@ public class AnimalDAO {
                 float peso = Float.parseFloat(rs.getString("Peso"));
                 LocalDate dataN = LocalDate.parse(rs.getString("DataNascimento"));
                 LocalDate validadeV = LocalDate.parse(rs.getString("ValidadeVacina"));
-                char genero = rs.getString("Género").charAt(0);
-                char vida = rs.getString("Vida").charAt(0);
+                String genero = rs.getString("Género");
+                String vida = rs.getString("Vida");
                 
                 List<Consumo> consumo = new ArrayList<>();
                 PreparedStatement psC = con.prepareStatement("SELECT AR.Recurso_ID, AR.QuantidadeConsumida, AR.DataUltimoConsumo FROM AnimalRecurso AS AR WHERE AR.Animal_ID =" + id +";");

@@ -7,6 +7,7 @@ package projeto_bd;
 
 import java.time.LocalDate;
 import java.util.List;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -18,11 +19,11 @@ public class Animal extends Document{
     private float peso;
     private LocalDate dataNascimento;
     private LocalDate validadeVacina;
-    private char genero;
-    private char vida;
+    private String genero;
+    private String vida;
     private List<Consumo> recursosConsumidos;
 
-    public Animal(int id, String especie, float peso, LocalDate dataNascimento, LocalDate validadeVacina, char genero, char vida, List<Consumo> recursosConsumidos) {
+    public Animal(int id, String especie, float peso, LocalDate dataNascimento, LocalDate validadeVacina, String genero, String vida, List<Consumo> recursosConsumidos) {
         this.id = id;
         this.especie = especie;
         this.peso = peso;
@@ -55,15 +56,29 @@ public class Animal extends Document{
         return validadeVacina;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public char getVida() {
+    public String getVida() {
         return vida;
     }
 
     public List<Consumo> getRecursosConsumidos() {
         return recursosConsumidos;
     }
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("ID", id);
+        obj.put("Especie", especie);
+        obj.put("Peso", peso);
+        obj.put("DataNascimento", dataNascimento);
+        obj.put("ValidadeVacina", validadeVacina);     
+        obj.put("Genero", genero);  
+        obj.put("Vida", vida);  
+        return obj;
+    }
+    
 }

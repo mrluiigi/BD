@@ -36,7 +36,7 @@ public class RecursoDAO {
                 int id = Integer.parseInt(rs.getString("ID"));
                 String tipo = rs.getString("Tipo");
                 String fornecedor = rs.getString("Fornecedor");
-                float preco = Float.parseFloat(rs.getString("Preço"));
+                float preco = Float.parseFloat(rs.getString("Preco"));
                 int stock = Integer.parseInt(rs.getString("Stock"));
                 
                 

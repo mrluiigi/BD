@@ -6,6 +6,7 @@
 package projeto_bd;
 
 import java.util.List;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -44,5 +45,15 @@ public class Plantacao extends Document{
 
     public List<Consumo> getRecursosConsumidos() {
         return recursosConsumidos;
+    }
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("ID", id);
+        obj.put("Tipo", tipo);
+        obj.put("Area", area);
+        obj.put("MesColheita", mesColheita);
+        return obj;
     }
 }
