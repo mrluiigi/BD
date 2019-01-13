@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto_bd;
 
 import java.util.List;
+import org.json.simple.JSONObject;
 
-/**
- *
- * @author Barbosa
- */
 public class Cliente extends Document{
     private int NIF;
     private String nome;
@@ -44,5 +36,16 @@ public class Cliente extends Document{
 
     public List<Integer> getEncomendas() {
         return encomendas;
+    }
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("NIF", NIF);
+        obj.put("Nome", nome);
+        obj.put("Tipo", tipo);
+        obj.put("Contacto", contacto);
+        
+        return obj;
     }
 }
