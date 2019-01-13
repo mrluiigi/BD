@@ -1,6 +1,5 @@
 package projeto_bd;
 
-import java.time.LocalDate;
 import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,12 +11,12 @@ import org.json.simple.JSONObject;
 public class Encomenda extends Document{
     private int id;
     private float valor;
-    private LocalDate data;
+    private String data;
     private int cliente;
     private List<Integer> produtosAnimais;    
     private List<Integer> produtosVegetais;
 
-    public Encomenda(int id, float valor, LocalDate data, List<Integer> produtosAnimais, List<Integer> produtosVegetais, int cliente) {
+    public Encomenda(int id, float valor, String data, List<Integer> produtosAnimais, List<Integer> produtosVegetais, int cliente) {
         this.id = id;
         this.valor = valor;
         this.data = data;
@@ -34,7 +33,7 @@ public class Encomenda extends Document{
         return valor;
     }
 
-    public LocalDate getData() {
+    public String getData() {
         return data;
     }
 

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ProdutoAnimalDAO {
@@ -23,9 +22,9 @@ public class ProdutoAnimalDAO {
                 float preco = Float.parseFloat(rs.getString("Preco"));
                 int stock = Integer.parseInt(rs.getString("Stock"));
                 String val = rs.getString("Validade");
-                LocalDate validade = null;
+                String validade = null;
                 if(val != null) {
-                    LocalDate.parse(val);
+                    validade = val;
                 }
                 int origemID = Integer.parseInt(rs.getString("Animal_ID"));               
                 Produto e = new Produto(id, designacao, preco, stock, validade, origemID);

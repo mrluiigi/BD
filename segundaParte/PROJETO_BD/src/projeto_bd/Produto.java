@@ -5,7 +5,6 @@
  */
 package projeto_bd;
 
-import java.time.LocalDate;
 import org.json.simple.JSONObject;
 
 /**
@@ -17,10 +16,10 @@ public class Produto extends Document{
     private String designacao;
     private float preco;
     private int stock;
-    private LocalDate validade;
+    private String validade;
     private int origemID;
 
-    public Produto(int id, String designacao, float preco, int stock, LocalDate validade, int origemID) {
+    public Produto(int id, String designacao, float preco, int stock, String validade, int origemID) {
         this.id = id;
         this.designacao = designacao;
         this.preco = preco;
@@ -28,8 +27,6 @@ public class Produto extends Document{
         this.validade = validade;
         this.origemID = origemID;
     }
-
-    
     
     public int getId() {
         return id;
@@ -47,7 +44,7 @@ public class Produto extends Document{
         return stock;
     }
 
-    public LocalDate getValidade() {
+    public String getValidade() {
         return validade;
     }
     
