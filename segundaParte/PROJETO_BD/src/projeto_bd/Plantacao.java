@@ -59,7 +59,7 @@ public class Plantacao extends Document{
         for(Consumo e : this.recursosConsumidos) {
             consumos.add(e.toJSONObject());
         }
-        obj.put("Encomendas", consumos);
+        obj.put("RecursosConsumidos", consumos);
         return obj;
     }
 }

@@ -56,12 +56,12 @@ public class Encomenda extends Document{
         for(Integer e : this.produtosAnimais) {
             listAnimais.add(e);
         }
-        obj.put("Encomendas", listAnimais);
+        obj.put("ProdutosAnimais", listAnimais);
         JSONArray listVegetais = new JSONArray();
         for(Integer e : this.produtosVegetais) {
             listVegetais.add(e);
         }
-        obj.put("Encomendas", listVegetais);
+        obj.put("ProdutosVegetais", listVegetais);
         return obj;
     }
 }
