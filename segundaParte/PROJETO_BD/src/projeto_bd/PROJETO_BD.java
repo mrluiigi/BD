@@ -5,6 +5,8 @@
  */
 package projeto_bd;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -28,7 +30,18 @@ public class PROJETO_BD {
         String password = "manel42";
         Connection con = DriverManager.getConnection(connection, user, password);
         
-        ProdutoAnimalDAO.getAll(con);
+        try {
+            FileWriter file = new FileWriter("../ProdutoAnimal.json");
+            for( Document d : ProdutoAnimalDAO.getAll(con)) {
+                file.write(d.toJSONObject().toJSONString());
+                file.flush();
+        }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        
     }
     
 }

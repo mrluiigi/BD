@@ -21,12 +21,14 @@ public class ProdutoAnimalDAO {
             while(rs.next()){
                 int id = Integer.parseInt(rs.getString("ID"));
                 String designacao = rs.getString("Designacao");
-                float preco = Float.parseFloat(rs.getString("Preço"));
+                float preco = Float.parseFloat(rs.getString("Preco"));
                 int stock = Integer.parseInt(rs.getString("Stock"));
-                LocalDate validade = LocalDate.parse(rs.getString("Validade"));
-                // animal id?
-                PreparedStatement psA = con.prepareStatement("SELECT PAE.ProdutoAnimal_ID FROM ProdutoAnimalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
-                
+                String val = rs.getString("Validade");
+                LocalDate validade = null;
+                if(val != null) {
+                    LocalDate.parse(val);
+                }
+                // animal id?                
                 Produto e = new Produto(id, designacao, preco, stock, validade);
                 r.add(e);
             }
@@ -35,4 +37,5 @@ public class ProdutoAnimalDAO {
         }
         return r;
     }
+    
 }

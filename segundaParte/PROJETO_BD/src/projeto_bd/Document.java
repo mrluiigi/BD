@@ -5,9 +5,12 @@
  */
 package projeto_bd;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Barbosa
  */
 public abstract class Document {
+    public JSONObject toJSONObject() {return null;};
 }

@@ -6,6 +6,7 @@
 package projeto_bd;
 
 import java.time.LocalDate;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -46,5 +47,18 @@ public class Produto extends Document{
 
     public LocalDate getValidade() {
         return validade;
+    }
+    
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("ID", id);
+        obj.put("Designacao", designacao);
+        obj.put("Preco", preco);
+        obj.put("Stock", stock);
+       // obj.put("Validade", validade);
+        
+        return obj;
     }
 }
