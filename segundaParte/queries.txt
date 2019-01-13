@@ -1,4 +1,4 @@
-//QUERIES EM MONGODB
+﻿//QUERIES EM MONGODB
 
 
 -------------Área total das plantações (é preciso atributo para saber se foi colhida)--------------
@@ -20,3 +20,30 @@ db.Funcionario.find({ListaPlantacoes: { $all : [3]}})
 db.Animais.find({Especie : "Vaca minhota", Vida: "V"}).count()
 -----------------------Que espécies consomem o recurso X (Onde tem _id: 1 substituir por valor)-----------------------
 db.Animais.distinct("Especie", {RecursosConsumidos: {$elemMatch: {_id: 1}}})
+
+-- Quantas espécies de animais existem na quinta
+db.Animais.distinct("Especie").length
+
+
+-- Número de encomendas feitas
+db.Encomendas.find().length()
+
+
+-- Adiciona ao stock de um certo recurso uma quantidade
+db.Recursos.update({'_id':*INSERIR ID*},{$inc:{'Stock':*INSERIR QUANTIDADE A INCREMENTAR*}})
+
+
+-- Quantidade em stock do produtoanimal X
+db.ProdutosAnimais.find({'_id':*INSERIR ID*},{'Stock':1,'_id':0})
+
+
+-- Quantidade em stock do produtovegetal X
+db.ProdutosVegetais.find({'_id':*INSERIR ID*},{'Stock':1,'_id':0})
+
+
+-- Quantidade em Stock do recurso X
+db.Recursos.find({'_id':*INSERIR ID*},{'Stock':1,'_id':0})
+
+
+-- Que funcionario cuidou do Animal X
+db.Funcionarios.find({'ListaAnimais':*INSERIR ID*},{'_id':1, 'Nome':1})
