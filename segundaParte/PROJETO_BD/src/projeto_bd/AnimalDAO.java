@@ -35,12 +35,18 @@ public class AnimalDAO {
                 char genero = rs.getString("Género").charAt(0);
                 char vida = rs.getString("Vida").charAt(0);
                 
-                
-                
-                //VERIFICAR COMO VAI FICAR ESTA PARTE----------------------------------
-                List<Consumo> recursos = new ArrayList<>();
-                
-                Animal a = new Animal(id, especie, peso, dataN, validadeV, genero, vida, recursos);
+                List<Consumo> consumo = new ArrayList<>();
+                PreparedStatement psC = con.prepareStatement("SELECT AR.Recurso_ID, AR.QuantidadeConsumida, AR.DataUltimoConsumo FROM AnimalRecurso AS AR WHERE AR.Animal_ID =" + id +";");
+                ResultSet rsC = psC.executeQuery();
+                while(rsC.next()){
+                    int recursoID = Integer.parseInt(rsC.getString("Recurso_ID"));
+                    int quantidadeConsumida = Integer.parseInt(rsC.getString("QuantidadeConsumida"));
+                    LocalDate dataUltimoConsumo = LocalDate.parse(rsC.getString("DataUltimoConsumo"));
+                    Consumo recursosConsumidos = new Consumo(recursoID, quantidadeConsumida, dataUltimoConsumo);
+                    consumo.add(recursosConsumidos);
+                }
+                    
+                Animal a = new Animal(id, especie, peso, dataN, validadeV, genero, vida, consumo);
                 res.add(a);
             }
         }catch (SQLException e) {

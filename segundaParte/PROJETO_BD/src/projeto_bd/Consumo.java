@@ -12,12 +12,18 @@ import java.time.LocalDate;
  * @author Barbosa
  */
 public class Consumo {
-    private String tipoDeRecurso;
+    private int id;
     private int quantidadeConsumida;
     private LocalDate dataDoUltimoConsumo;
 
-    public String getTipoDeRecurso() {
-        return tipoDeRecurso;
+    public Consumo(int id, int quantidadeConsumida, LocalDate dataDoUltimoConsumo) {
+        this.id = id;
+        this.quantidadeConsumida = quantidadeConsumida;
+        this.dataDoUltimoConsumo = dataDoUltimoConsumo;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public int getQuantidadeConsumida() {
