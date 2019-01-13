@@ -5,19 +5,26 @@
  */
 package projeto_bd;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
  *
  * @author Barbosa
  */
-public class Plantacao {
+public class Plantacao extends Document{
     private int id;
     private String tipo;
-    private int area;
-    private LocalDate mesColheita;
+    private float area;
+    private int mesColheita;
     private List<Consumo> recursosConsumidos;
+
+    public Plantacao(int id, String tipo, float area, int mesColheita, List<Consumo> recursosConsumidos) {
+        this.id = id;
+        this.tipo = tipo;
+        this.area = area;
+        this.mesColheita = mesColheita;
+        this.recursosConsumidos = recursosConsumidos;
+    }
 
     public int getId() {
         return id;
@@ -27,11 +34,11 @@ public class Plantacao {
         return tipo;
     }
 
-    public int getArea() {
+    public float getArea() {
         return area;
     }
 
-    public LocalDate getMesColheita() {
+    public int getMesColheita() {
         return mesColheita;
     }
 
