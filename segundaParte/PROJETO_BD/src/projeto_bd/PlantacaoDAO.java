@@ -38,7 +38,7 @@ public class PlantacaoDAO {
                 while(rsP.next()){
                     int recursoID = Integer.parseInt(rsP.getString("Recurso_ID"));
                     int quantidadeConsumida = Integer.parseInt(rsP.getString("QuantidadeConsumida"));
-                    LocalDate dataUltimoConsumo = LocalDate.parse(rsP.getString("DataUltimoConsumo"));
+                    String dataUltimoConsumo = LocalDate.parse(rsP.getString("DataUltimoConsumo")).toString();
                     Consumo recursosConsumidos = new Consumo(recursoID, quantidadeConsumida, dataUltimoConsumo);
                     consumo.add(recursosConsumidos);
                 }

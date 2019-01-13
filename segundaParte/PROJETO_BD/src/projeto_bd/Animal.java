@@ -6,6 +6,7 @@
 package projeto_bd;
 
 import java.util.List;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
@@ -77,6 +78,11 @@ public class Animal extends Document{
         obj.put("ValidadeVacina", validadeVacina);     
         obj.put("Genero", genero);  
         obj.put("Vida", vida);  
+        JSONArray consumos = new JSONArray();
+        for(Consumo e : this.recursosConsumidos) {
+            consumos.add(e.toJSONObject());
+        }
+        obj.put("Encomendas", consumos);
         return obj;
     }
     

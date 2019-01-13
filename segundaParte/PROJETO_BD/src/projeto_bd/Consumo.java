@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto_bd;
 
 import java.time.LocalDate;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-/**
- *
- * @author Barbosa
- */
-public class Consumo {
+public class Consumo extends Document {
     private int id;
     private int quantidadeConsumida;
-    private LocalDate dataDoUltimoConsumo;
+    private String dataDoUltimoConsumo;
 
-    public Consumo(int id, int quantidadeConsumida, LocalDate dataDoUltimoConsumo) {
+    public Consumo(int id, int quantidadeConsumida, String dataDoUltimoConsumo) {
         this.id = id;
         this.quantidadeConsumida = quantidadeConsumida;
         this.dataDoUltimoConsumo = dataDoUltimoConsumo;
@@ -30,7 +23,16 @@ public class Consumo {
         return quantidadeConsumida;
     }
 
-    public LocalDate getDataDoUltimoConsumo() {
+    public String getDataDoUltimoConsumo() {
         return dataDoUltimoConsumo;
+    }
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("_id", id);
+        obj.put("quantidadeConsumida", quantidadeConsumida);
+        obj.put("dataDoUltimoConsumo", dataDoUltimoConsumo);
+        return obj;
     }
 }

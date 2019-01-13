@@ -41,7 +41,7 @@ public class AnimalDAO {
                 while(rsC.next()){
                     int recursoID = Integer.parseInt(rsC.getString("Recurso_ID"));
                     int quantidadeConsumida = Integer.parseInt(rsC.getString("QuantidadeConsumida"));
-                    LocalDate dataUltimoConsumo = LocalDate.parse(rsC.getString("DataUltimoConsumo"));
+                    String dataUltimoConsumo = LocalDate.parse(rsC.getString("DataUltimoConsumo")).toString();
                     Consumo recursosConsumidos = new Consumo(recursoID, quantidadeConsumida, dataUltimoConsumo);
                     consumo.add(recursosConsumidos);
                 }
@@ -54,6 +54,4 @@ public class AnimalDAO {
         }
         return res;
     }
-    
-    
 }

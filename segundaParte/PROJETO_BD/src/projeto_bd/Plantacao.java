@@ -6,6 +6,7 @@
 package projeto_bd;
 
 import java.util.List;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
@@ -54,6 +55,11 @@ public class Plantacao extends Document{
         obj.put("Tipo", tipo);
         obj.put("Area", area);
         obj.put("MesColheita", mesColheita);
+        JSONArray consumos = new JSONArray();
+        for(Consumo e : this.recursosConsumidos) {
+            consumos.add(e.toJSONObject());
+        }
+        obj.put("Encomendas", consumos);
         return obj;
     }
 }
