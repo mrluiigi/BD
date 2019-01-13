@@ -1,0 +1,22 @@
+//QUERIES EM MONGODB
+
+
+// Área total das plantações (é preciso atributo para saber se foi colhida)
+db.plantacao.aggregate([{$group: {_id: null, Areatotal:{$sum: "$Area"}}}])
+
+
+
+// Recursos consumidos pela Plantação dada
+db.Plantacao.find({_id : 1}, {"RecursosConsumidos.quantidadeConsumida": 1}).pretty()
+
+// Recursos consumidos pelo animal dado (substituir 1 pelo id pretendido)
+db.Animais.find({_id : 1}, {"RecursosConsumidos.quantidadeConsumida": 1})
+
+// Funcionários da Plantação X (substituir 3 pela plantação pretendida)
+db.Funcionario.find({ListaPlantacoes: { $all : [3]}})
+
+// Número de animais da espécie X
+db.Animais.find({Especie : "Vaca minhota", Vida: "V"}).count()
+
+// Que espécies consomem o recurso X (Onde tem _id: 1 substituir por valor)
+db.Animais.distinct("Especie", {RecursosConsumidos: {$elemMatch: {_id: 1}}})
