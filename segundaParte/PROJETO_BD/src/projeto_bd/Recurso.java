@@ -5,6 +5,8 @@
  */
 package projeto_bd;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Barbosa
@@ -42,5 +44,16 @@ public class Recurso extends Document{
 
     public int getStock() {
         return stock;
+    }
+    
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("ID", id);
+        obj.put("Tipo", tipo);
+        obj.put("Fornecedor", fornecedor);
+        obj.put("Preco", preco);
+        obj.put("Stock", stock);        
+        return obj;
     }
 }
