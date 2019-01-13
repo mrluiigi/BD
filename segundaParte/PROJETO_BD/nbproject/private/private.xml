@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/PROJETO_BD.java</file>
+            <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/RecursoDAO.java</file>
             <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/EncomendaDAO.java</file>
             <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/FuncionarioDAO.java</file>
             <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/Encomenda.java</file>
             <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/Funcionario.java</file>
+            <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/ProdutoAnimalDAO.java</file>
+            <file>file:/C:/Users/Utilizador/Desktop/BD/segundaParte/PROJETO_BD/src/projeto_bd/Recurso.java</file>
         </group>
     </open-files>
 </project-private>

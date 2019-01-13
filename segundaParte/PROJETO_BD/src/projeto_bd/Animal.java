@@ -12,15 +12,28 @@ import java.util.List;
  *
  * @author Barbosa
  */
-public class Animal {
+public class Animal extends Document{
     private int id;
     private String especie;
-    private int peso;
+    private float peso;
     private LocalDate dataNascimento;
     private LocalDate validadeVacina;
-    private String genero;
-    private String vida;
+    private char genero;
+    private char vida;
     private List<Consumo> recursosConsumidos;
+
+    public Animal(int id, String especie, float peso, LocalDate dataNascimento, LocalDate validadeVacina, char genero, char vida, List<Consumo> recursosConsumidos) {
+        this.id = id;
+        this.especie = especie;
+        this.peso = peso;
+        this.dataNascimento = dataNascimento;
+        this.validadeVacina = validadeVacina;
+        this.genero = genero;
+        this.vida = vida;
+        this.recursosConsumidos = recursosConsumidos;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -30,7 +43,7 @@ public class Animal {
         return especie;
     }
 
-    public int getPeso() {
+    public float getPeso() {
         return peso;
     }
 
@@ -42,11 +55,11 @@ public class Animal {
         return validadeVacina;
     }
 
-    public String getGenero() {
+    public char getGenero() {
         return genero;
     }
 
-    public String getVida() {
+    public char getVida() {
         return vida;
     }
 

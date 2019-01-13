@@ -29,7 +29,7 @@ public class RecursoDAO {
         ArrayList<Document> res = new ArrayList<>();
 
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Recursos");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Recurso");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
