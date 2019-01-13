@@ -23,10 +23,10 @@ public class FuncionarioDAO {
             while(rs.next()){
                 int numero = Integer.parseInt(rs.getString("Número"));
                 String nome = rs.getString("Nome");
-                int tipo = Integer.parseInt(rs.getString("Tipo"));
+                String tipo = rs.getString("Tipo");
                 float salario = Float.parseFloat(rs.getString("Salário"));
                 String contacto = rs.getString("Contacto");
-                char horario = rs.getString("Horário").charAt(0);
+                String horario = rs.getString("Horário");
                 
                 PreparedStatement psA = con.prepareStatement("SELECT FA.Animal_ID FROM FuncionárioAnimal AS FA WHERE FA.Funcionário_Número = " + numero + ";");
                 ResultSet rsA = psA.executeQuery();
@@ -42,7 +42,7 @@ public class FuncionarioDAO {
                 
                 List<Integer> plantacoes = new ArrayList<>();
                 while(rsP.next()){
-                    int idP = Integer.parseInt(rsA.getString("Plantação_ID"));
+                    int idP = Integer.parseInt(rsP.getString("Plantação_ID"));
                     plantacoes.add(idP);
                 }
 

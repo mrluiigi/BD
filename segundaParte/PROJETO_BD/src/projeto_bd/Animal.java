@@ -71,7 +71,7 @@ public class Animal extends Document{
     @Override
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
-        obj.put("ID", id);
+        obj.put("_id", id);
         obj.put("Especie", especie);
         obj.put("Peso", peso);
         obj.put("DataNascimento", dataNascimento);

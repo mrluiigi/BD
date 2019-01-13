@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ProdutoAnimalDAO {
+public class ProdutoVegetalDAO {
     
     public static ArrayList<Document> getAll (Connection con) {        
         ArrayList<Document> r = new ArrayList<>();
 
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM ProdutoAnimal AS PA" +
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM ProdutoVegetal AS PA" +
                                                         ";");
             ResultSet rs = ps.executeQuery();
             
@@ -27,7 +27,7 @@ public class ProdutoAnimalDAO {
                 if(val != null) {
                     LocalDate.parse(val);
                 }
-                int origemID = Integer.parseInt(rs.getString("Animal_ID"));               
+                int origemID = Integer.parseInt(rs.getString("Plantação_ID"));               
                 Produto e = new Produto(id, designacao, preco, stock, validade, origemID);
                 r.add(e);
             }

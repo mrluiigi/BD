@@ -25,6 +25,7 @@ public class EncomendaDAO {
                 int id = Integer.parseInt(rs.getString("ID"));
                 float valor = Float.parseFloat(rs.getString("Valor"));
                 LocalDate data = LocalDate.parse(rs.getString("Data"));
+                int cliente = Integer.parseInt(rs.getString("Cliente"));
                 
                 PreparedStatement psA = con.prepareStatement("SELECT PAE.ProdutoAnimal_ID FROM ProdutoAnimalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
                                                         
@@ -44,7 +45,7 @@ public class EncomendaDAO {
                     produtosV.add(idV);
                 }
                 
-                Encomenda e = new Encomenda(id, valor, data, produtosA, produtosV);
+                Encomenda e = new Encomenda(id, valor, data, produtosA, produtosV, cliente);
                 r.add(e);
             }
         } catch (SQLException e) {

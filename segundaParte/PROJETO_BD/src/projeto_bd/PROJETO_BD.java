@@ -44,10 +44,13 @@ public class PROJETO_BD {
         String password = "manel42";
         con = DriverManager.getConnection(connection, user, password);
         writeJSON(ProdutoAnimalDAO.getAll(con),"ProdutoAnimal.json");
+        writeJSON(ProdutoVegetalDAO.getAll(con),"ProdutoVegetal.json");
         writeJSON(ClienteDAO.getAll(con),"Cliente.json");
         writeJSON(RecursoDAO.getAll(con),"Recurso.json");
         writeJSON(AnimalDAO.getAll(con),"Animal.json");   
         writeJSON(PlantacaoDAO.getAll(con),"Plantacao.json");  
+        writeJSON(EncomendaDAO.getAll(con),"Encomenda.json");  
+        writeJSON(FuncionarioDAO.getAll(con),"Funcionario.json");  
     }
     
 }

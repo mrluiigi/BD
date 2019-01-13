@@ -1,6 +1,7 @@
 package projeto_bd;
 
 import java.util.List;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Cliente extends Document{
@@ -41,11 +42,15 @@ public class Cliente extends Document{
     @Override
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
-        obj.put("NIF", NIF);
+        obj.put("_id", NIF);
         obj.put("Nome", nome);
         obj.put("Tipo", tipo);
         obj.put("Contacto", contacto);
-        
+        JSONArray list = new JSONArray();
+        for(Integer e : this.encomendas) {
+            list.add(e);
+        }
+        obj.put("Encomendas", list);
         return obj;
     }
 }

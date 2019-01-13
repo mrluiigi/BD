@@ -18,13 +18,15 @@ public class Produto extends Document{
     private float preco;
     private int stock;
     private LocalDate validade;
+    private int origemID;
 
-    public Produto(int id, String designacao, float preco, int stock, LocalDate validade) {
+    public Produto(int id, String designacao, float preco, int stock, LocalDate validade, int origemID) {
         this.id = id;
         this.designacao = designacao;
         this.preco = preco;
         this.stock = stock;
         this.validade = validade;
+        this.origemID = origemID;
     }
 
     
@@ -53,12 +55,14 @@ public class Produto extends Document{
     @Override
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
-        obj.put("ID", id);
+        obj.put("_id", id);
         obj.put("Designacao", designacao);
         obj.put("Preco", preco);
         obj.put("Stock", stock);
-       // obj.put("Validade", validade);
-        
+        if(validade != null) {
+            obj.put("Validade", validade);
+        }
+        obj.put("Origem", origemID);
         return obj;
     }
 }

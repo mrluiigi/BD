@@ -50,7 +50,7 @@ public class Plantacao extends Document{
     @Override
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
-        obj.put("ID", id);
+        obj.put("_id", id);
         obj.put("Tipo", tipo);
         obj.put("Area", area);
         obj.put("MesColheita", mesColheita);
