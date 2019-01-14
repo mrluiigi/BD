@@ -1,3 +1,5 @@
+package Migracao;
+
 
 
 
@@ -10,7 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-public class PROJETO_BD {
+public class Main {
     static Connection con;
     
 
