@@ -7,6 +7,7 @@ package Migracao;
  */
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -21,13 +22,13 @@ public class Animal extends Documento{
     private int id;
     private String especie;
     private float peso;
-    private String dataNascimento;
-    private String validadeVacina;
+    private LocalDate dataNascimento;
+    private LocalDate validadeVacina;
     private String genero;
     private String vida;
     private List<Consumo> recursosConsumidos;
 
-    public Animal(int id, String especie, float peso, String dataNascimento, String validadeVacina, String genero, String vida, List<Consumo> recursosConsumidos) {
+    public Animal(int id, String especie, float peso, LocalDate dataNascimento, LocalDate validadeVacina, String genero, String vida, List<Consumo> recursosConsumidos) {
         this.id = id;
         this.especie = especie;
         this.peso = peso;
@@ -52,11 +53,11 @@ public class Animal extends Documento{
         return peso;
     }
 
-    public String getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public String getValidadeVacina() {
+    public LocalDate getValidadeVacina() {
         return validadeVacina;
     }
 

@@ -10,9 +10,9 @@ import org.json.simple.JSONObject;
 public class Consumo extends Documento {
     private int id;
     private int quantidadeConsumida;
-    private String dataDoUltimoConsumo;
+    private LocalDate dataDoUltimoConsumo;
 
-    public Consumo(int id, int quantidadeConsumida, String dataDoUltimoConsumo) {
+    public Consumo(int id, int quantidadeConsumida, LocalDate dataDoUltimoConsumo) {
         this.id = id;
         this.quantidadeConsumida = quantidadeConsumida;
         this.dataDoUltimoConsumo = dataDoUltimoConsumo;
@@ -26,7 +26,7 @@ public class Consumo extends Documento {
         return quantidadeConsumida;
     }
 
-    public String getDataDoUltimoConsumo() {
+    public LocalDate getDataDoUltimoConsumo() {
         return dataDoUltimoConsumo;
     }
     

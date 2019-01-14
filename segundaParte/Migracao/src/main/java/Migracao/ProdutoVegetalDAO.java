@@ -25,9 +25,9 @@ public class ProdutoVegetalDAO {
                 float preco = Float.parseFloat(rs.getString("Preco"));
                 int stock = Integer.parseInt(rs.getString("Stock"));
                 String val = rs.getString("Validade");
-                String validade = null;
+                LocalDate validade = null;
                 if(val != null) {
-                    validade = val;
+                    validade = LocalDate.parse(val);
                 }
                 int origemID = Integer.parseInt(rs.getString("Plantação_ID"));               
                 Produto e = new Produto(id, designacao, preco, stock, validade, origemID);

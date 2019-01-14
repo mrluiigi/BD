@@ -32,8 +32,8 @@ public class AnimalDAO {
                 int id = Integer.parseInt(rs.getString("ID"));
                 String especie = rs.getString("Espécie");
                 float peso = Float.parseFloat(rs.getString("Peso"));
-                String dataN = rs.getString("DataNascimento");
-                String validadeV = rs.getString("ValidadeVacina");
+                LocalDate dataN = LocalDate.parse(rs.getString("DataNascimento"));
+                LocalDate validadeV = LocalDate.parse(rs.getString("ValidadeVacina"));
                 String genero = rs.getString("Género");
                 String vida = rs.getString("Vida");
                 
@@ -43,7 +43,7 @@ public class AnimalDAO {
                 while(rsC.next()){
                     int recursoID = Integer.parseInt(rsC.getString("Recurso_ID"));
                     int quantidadeConsumida = Integer.parseInt(rsC.getString("QuantidadeConsumida"));
-                    String dataUltimoConsumo = LocalDate.parse(rsC.getString("DataUltimoConsumo")).toString();
+                    LocalDate dataUltimoConsumo = LocalDate.parse(rsC.getString("DataUltimoConsumo"));
                     Consumo recursosConsumidos = new Consumo(recursoID, quantidadeConsumida, dataUltimoConsumo);
                     consumo.add(recursosConsumidos);
                 }

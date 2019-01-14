@@ -7,6 +7,7 @@ package Migracao;
  */
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -21,10 +22,10 @@ public class Produto extends Documento{
     private String designacao;
     private float preco;
     private int stock;
-    private String validade;
+    private LocalDate validade;
     private int origemID;
 
-    public Produto(int id, String designacao, float preco, int stock, String validade, int origemID) {
+    public Produto(int id, String designacao, float preco, int stock, LocalDate validade, int origemID) {
         this.id = id;
         this.designacao = designacao;
         this.preco = preco;
@@ -49,7 +50,7 @@ public class Produto extends Documento{
         return stock;
     }
 
-    public String getValidade() {
+    public LocalDate getValidade() {
         return validade;
     }
     
