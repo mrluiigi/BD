@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class EncomendaDAO {
             while(rs.next()){
                 int id = Integer.parseInt(rs.getString("ID"));
                 float valor = Float.parseFloat(rs.getString("Valor"));
-                String data = rs.getString("Data");
+                LocalDate data = LocalDate.parse(rs.getString("Data"));
                 int cliente = Integer.parseInt(rs.getString("Cliente"));
                 
                 PreparedStatement psA = con.prepareStatement("SELECT PAE.ProdutoAnimal_ID FROM ProdutoAnimalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
