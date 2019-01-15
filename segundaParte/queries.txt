@@ -1,25 +1,32 @@
-﻿UERIES EM MONGODB
+﻿QUERIES EM MONGODB
 
 
--------------Área total das plantações (é preciso atributo para saber se foi colhida)--------------
-db.plantacao.aggregate([{$group: {_id: null, Areatotal:{$sum: "$Area"}}}])
+-- Área total das plantações
+db.Plantacoes.aggregate([{$group: {_id: null, Areatotal:{$sum: "$Area"}}}])
 
--------------Produtos do animal x---------------
-db.ProdutoAnimal.find({Origem: 2})
+-- Produtos do animal x
+db.ProdutoAnimal.find({Origem: *INSERIR ID DO ANIMAL*})
 
-----------------------Recursos consumidos pela Plantação dada--------------------------
-db.Plantacao.find({_id : 1}, {"RecursosConsumidos.quantidadeConsumida": 1}).pretty()
 
-----------------------Recursos consumidos pelo animal dado (substituir 1 pelo id pretendido)------------
-db.Animais.find({_id : 1}, {"RecursosConsumidos.quantidadeConsumida": 1})
+-- Recursos consumidos pela Plantação dada
+db.Plantacoes.find({_id : *INSERIR ID DA PLANTAÇÃO*}, {"RecursosConsumidos.quantidadeConsumida": 1}).pretty()
 
-----------------------Funcionários da Plantação X (substituir 3 pela plantação pretendida)----------------
-db.Funcionario.find({ListaPlantacoes: { $all : [3]}})
 
-----------------------Número de animais da espécie X----------------------------------
-db.Animais.find({Especie : "Vaca minhota", Vida: "V"}).count()
------------------------Que espécies consomem o recurso X (Onde tem _id: 1 substituir por valor)-----------------------
-db.Animais.distinct("Especie", {RecursosConsumidos: {$elemMatch: {_id: 1}}})
+-- Recursos consumidos pelo animal dado
+db.Animais.find({_id : *INSERIR ID DA PLANTAÇÃO*}, {"RecursosConsumidos.quantidadeConsumida": 1})
+
+
+-- Funcionários da Plantação X
+db.Funcionarios.find({ListaPlantacoes: { $all : [3]}})
+
+
+-- Número de animais da espécie X
+db.Animais.find({Especie : "*INSERIR ESPÉCIE DE ANIMAL*", Vida: "V"}).count()
+
+
+-- Que espécies consomem o recurso X
+db.Animais.distinct("Especie", {RecursosConsumidos: {$elemMatch: {_id: *INSERIR ID DO RECURSO*}}})
+
 
 -- Quantas espécies de animais existem na quinta
 db.Animais.distinct("Especie").length
@@ -54,7 +61,7 @@ db.Encomendas.aggregate([{$match:{'Cliente':*INSERIR ID*}},{$group: {'_id': '$Cl
 
 
 -- Altera validade da vacina +2 anos
-db.Animais.update({'_id':20},{$set:{ValidadeVacina: new Date(ISODate().getTime()+2*365*24*60*60*1000)}})
+db.Animais.update({'_id':*INSERIR ID DO ANIMALL*},{$set:{ValidadeVacina: new Date(ISODate().getTime()+2*365*24*60*60*1000)}})
 
 
 -- Plantações a colher no mês indicado
@@ -62,15 +69,15 @@ db.Plantacoes.find({'MesColheita':*INSERIR MÊS*}).pretty()
 
 
 -- Soma das vendas num intervalo de tempo
-db.Encomendas.aggregate([{$match:{'Data':{$gte:new Date("2018-10-03"),$lte:new Date("2018-10-03")}}},{$group: {'_id': null, Valortotal:{$sum: '$Valor'}}}])
+db.Encomendas.aggregate([{$match:{'Data':{$gte:new Date("2018-10-03"),$lte:new Date("2018-10-03")}}},{$group: {'_id': null, Valortotal:{$sum: '$Valor'}}}]) *SUBSTITUIR DATAS INTRODUZIDAS PELO INTERVALODE TEMPO DESEJADO*
 
 
 -- Produtos animais que tem validade abaixo da data indicada
-db.ProdutosAnimais.find({'Validade':{$lte:new Date("2020-01-01")}})
+db.ProdutosAnimais.find({'Validade':{$lte:new Date("2020-01-01")}}) *SUBSTITUIR DATA PELA PRETENDIDA*
 
 
 -- Produtos vegetais que tem data de validade abaixo da dada.
-db.ProdutosVegetais.find({'Validade':{$lte:new Date("2020-01-01")}})
+db.ProdutosVegetais.find({'Validade':{$lte:new Date("2020-01-01")}}) *SUBSTITUIR DATA PELA PRETENDIDA*
 
 
 --------------Transações--------
