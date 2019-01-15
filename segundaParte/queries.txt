@@ -83,6 +83,10 @@ db.ProdutosVegetais.find({'Validade':{$lte:new Date("2020-01-01")}}) *SUBSTITUIR
 --------------Transações--------
 
 
+-- Adiciona Animal
+db.Animais.insert({_id : 81, Especie: "Ovelha Merino", Peso: 52, DataNascimento: new Date("2016-09-21"), ValidadeVacina: new Date("2020-09-21"), Genero: "F", Vida: "V", RecursosConsumidos: [1,2]})
+
+
 -- Adiciona Cliente
 db.Clientes.insert({_id : 14, Nome: "Manel Dias", Tipo: "I", Contacto: 9231568837, Encomendas: [3, 4]})
 
