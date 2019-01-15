@@ -1,4 +1,4 @@
-//QUERIES EM MONGODB
+﻿UERIES EM MONGODB
 
 
 -------------Área total das plantações (é preciso atributo para saber se foi colhida)--------------
@@ -49,7 +49,20 @@ db.Recursos.find({'_id':*INSERIR ID*},{'Stock':1,'_id':0})
 db.Funcionarios.find({'ListaAnimais':*INSERIR ID*},{'_id':1, 'Nome':1})
 
 
+-- Valor total das vendas de um cliente
+db.Encomendas.aggregate([{$match:{'Cliente':*INSERIR ID*}},{$group: {'_id': '$Cliente', Valortotal:{$sum: '$Valor'}}}])
 
+
+-- Altera validade da vacina +2 anos
+db.Animais.update({'_id':20},{$set:{ValidadeVacina: new Date(ISODate().getTime()+2*365*24*60*60*1000)}})
+
+
+-- Plantações a colher no mês indicado
+db.Plantacoes.find({'MesColheita':*INSERIR MÊS*}).pretty()
+
+
+-- Soma das vendas num intervalo de tempo
+db.Encomendas.aggregate([{$match:{'Data':{$gte:new Date("2018-10-03"),$lte:new Date("2018-10-03")}}},{$group: {'_id': null, Valortotal:{$sum: '$Valor'}}}])
 
 --------------Transações--------
 
