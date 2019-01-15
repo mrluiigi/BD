@@ -29,22 +29,24 @@ public class EncomendaDAO {
                 LocalDate data = LocalDate.parse(rs.getString("Data"));
                 int cliente = Integer.parseInt(rs.getString("Cliente"));
                 
-                PreparedStatement psA = con.prepareStatement("SELECT PAE.ProdutoAnimal_ID FROM ProdutoAnimalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
+                PreparedStatement psA = con.prepareStatement("SELECT * FROM ProdutoAnimalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
                                                         
                 ResultSet rsA = psA.executeQuery();
-                List<Integer> produtosA = new ArrayList<>();
+                List<ProdutoEncomenda> produtosA = new ArrayList<>();
                 while(rsA.next()){
                     int idA = Integer.parseInt(rsA.getString("ProdutoAnimal_ID"));
-                    produtosA.add(idA);
+                    int quantidade = Integer.parseInt(rsA.getString("Quantidade"));
+                    produtosA.add(new ProdutoEncomenda(idA, quantidade));
                 }
                 
-                PreparedStatement psV = con.prepareStatement("SELECT PAE.ProdutoVegetal_ID FROM ProdutoVegetalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
+                PreparedStatement psV = con.prepareStatement("SELECT * FROM ProdutoVegetalEncomenda AS PAE WHERE PAE.Encomenda_ID = " + id + ";");
                 ResultSet rsV = psV.executeQuery();
                 
-                List<Integer> produtosV = new ArrayList<>();
+                List<ProdutoEncomenda> produtosV = new ArrayList<>();
                 while(rsV.next()){
                     int idV = Integer.parseInt(rsV.getString("ProdutoVegetal_ID"));
-                    produtosV.add(idV);
+                    int quantidade = Integer.parseInt(rsV.getString("Quantidade"));
+                    produtosV.add(new ProdutoEncomenda(idV, quantidade));
                 }
                 
                 Encomenda e = new Encomenda(id, valor, data, produtosA, produtosV, cliente);

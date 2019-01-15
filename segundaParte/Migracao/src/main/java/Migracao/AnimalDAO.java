@@ -38,7 +38,8 @@ public class AnimalDAO {
                 String vida = rs.getString("Vida");
                 
                 List<Consumo> consumo = new ArrayList<>();
-                PreparedStatement psC = con.prepareStatement("SELECT AR.Recurso_ID, AR.QuantidadeConsumida, AR.DataUltimoConsumo FROM AnimalRecurso AS AR WHERE AR.Animal_ID =" + id +";");
+                PreparedStatement psC = con.prepareStatement("SELECT AR.Recurso_ID, AR.QuantidadeConsumida, "
+                        + "AR.DataUltimoConsumo FROM AnimalRecurso AS AR WHERE AR.Animal_ID =" + id +";");
                 ResultSet rsC = psC.executeQuery();
                 while(rsC.next()){
                     int recursoID = Integer.parseInt(rsC.getString("Recurso_ID"));
