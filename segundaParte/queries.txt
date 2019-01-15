@@ -64,6 +64,15 @@ db.Plantacoes.find({'MesColheita':*INSERIR MÊS*}).pretty()
 -- Soma das vendas num intervalo de tempo
 db.Encomendas.aggregate([{$match:{'Data':{$gte:new Date("2018-10-03"),$lte:new Date("2018-10-03")}}},{$group: {'_id': null, Valortotal:{$sum: '$Valor'}}}])
 
+
+-- Produtos animais que tem validade abaixo da data indicada
+db.ProdutosAnimais.find({'Validade':{$lte:new Date("2020-01-01")}})
+
+
+-- Produtos vegetais que tem data de validade abaixo da dada.
+db.ProdutosVegetais.find({'Validade':{$lte:new Date("2020-01-01")}})
+
+
 --------------Transações--------
 
 
