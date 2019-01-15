@@ -1,4 +1,4 @@
-﻿//QUERIES EM MONGODB
+//QUERIES EM MONGODB
 
 
 -------------Área total das plantações (é preciso atributo para saber se foi colhida)--------------
@@ -47,3 +47,28 @@ db.Recursos.find({'_id':*INSERIR ID*},{'Stock':1,'_id':0})
 
 -- Que funcionario cuidou do Animal X
 db.Funcionarios.find({'ListaAnimais':*INSERIR ID*},{'_id':1, 'Nome':1})
+
+
+
+
+--------------Transações--------
+
+
+-- Adiciona Cliente
+db.Clientes.insert({_id : 14, Nome: "Manel Dias", Tipo: "I", Contacto: 9231568837, Encomendas: [3, 4]})
+
+
+-- Adiciona Produto Animal (new Date(Ano, mês - 1, dia, horas, minutos), pode-se omitir a parte das horas e minutos)
+db.ProdutosAnimais.insert({_id: 36, Designacao: "Leite de Vaca", Preco: 1.19, Stock: 10, Validade: new Date(2020, 05, 12, 14, 12), Origem: 4})
+
+-- Adiciona Produto Vegetal( Data atual + 7 dias )
+db.ProdutosVegetais.insert({_id: 12, Designacao: "Girasois", Preco: 0.5, Stock: 20, Validade: new Date(ISODate().getTime() + 7*24*60*60*1000), Origem: 4})
+
+-- Altera salario de funcionário
+db.Funcionarios.update({_id: 11}, {$set:{Salario: 1100}})
+
+-- Altera Horário de funcionário
+db.Funcionarios.update({_id: 11}, {$set:{Horário: "S"}})
+
+-- Altera informação de cliente
+db.Clientes.update({_id: 22}, {$set: {Nome: "Manel Dias", Tipo: "I", Contacto: 923451809}})

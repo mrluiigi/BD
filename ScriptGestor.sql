@@ -48,8 +48,8 @@ SELECT totalVendasCliente(2);
 SELECT calculaVendaProdutosAnimal(8);
  
 -- Altera informação de cliente (21)
-CALL alteraCliente(21, 'Jerónimo Martins', 'Empresa', '250912378');
+CALL alteraCliente(21, 'Jerónimo Martins', 'E', '250912378');
 
 -- Adiciona Cliente
-CALL addCliente(22, 'Manuel Dias', 'Individual', '920358942');
+CALL addCliente(22, 'Manuel Dias', 'I', '920358942');
 
